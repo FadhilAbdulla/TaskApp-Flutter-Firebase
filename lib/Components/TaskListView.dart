@@ -1,46 +1,19 @@
 import 'package:flutter/material.dart';
 
 class TaskListView extends StatefulWidget {
-  const TaskListView({super.key});
+  const TaskListView({super.key, required this.TaskList});
+
+  final List<Map> TaskList;
 
   @override
   State<TaskListView> createState() => _TaskListView();
 }
 
 class _TaskListView extends State<TaskListView> {
-  final myController = TextEditingController();
-  final placeholder = "sample text";
-  final List<Map> items = [
-    {
-      "Category": "Ui Ux Design",
-      "Name": "Disk Task Management App",
-      "Description": "Redesign fashion app for up dribble",
-      "Date": "Today 10:00AM",
-      "Duration": "5",
-      "Status": "Completed"
-    },
-    {
-      "Category": "Mobile Developing",
-      "Name": "Ios Mobile Application",
-      "Description": "sample Redesign fashion app for up dribble",
-      "Date": "Today 5:00AM",
-      "Duration": "4",
-      "Status": "InProgress"
-    },
-    {
-      "Category": "Web developing",
-      "Name": "Web Application deployment",
-      "Description": "Redesign fashion app for up dribble",
-      "Date": "Today 9:00AM",
-      "Duration": "4.5",
-      "Status": "ToDo"
-    },
-  ];
-
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      itemCount: items.length,
+      itemCount: widget.TaskList.length,
       itemBuilder: (context, index) {
         return Card(
           elevation: 5, // Elevation controls the shadow depth
@@ -64,7 +37,7 @@ class _TaskListView extends State<TaskListView> {
                   padding: EdgeInsets.all(6.0),
                   margin: EdgeInsets.fromLTRB(18, 18, 0, 0), // Background color
                   child: Text(
-                    items[index]["Category"],
+                    widget.TaskList[index]["Category"],
                     style: TextStyle(
                         color: Colors.black,
                         fontSize: 10,
@@ -72,11 +45,11 @@ class _TaskListView extends State<TaskListView> {
                   ),
                 ),
                 ListTile(
-                  title: Text(items[index]["Name"],
+                  title: Text(widget.TaskList[index]["Name"],
                       style:
                           TextStyle(fontWeight: FontWeight.w600, fontSize: 15)),
                   subtitle: Text(
-                    items[index]["Description"],
+                    widget.TaskList[index]["Description"],
                     style: TextStyle(fontWeight: FontWeight.w200, fontSize: 12),
                   ),
                   trailing: Container(
@@ -85,11 +58,12 @@ class _TaskListView extends State<TaskListView> {
                           borderRadius: BorderRadius.circular(50.0)),
                       padding: EdgeInsets.all(3),
                       child: Icon(
-                        items[index]["Status"] == "ToDo"
+                        widget.TaskList[index]["Status"] == "ToDo"
                             ? Icons.play_arrow
-                            : items[index]["Status"] == "InProgress"
+                            : widget.TaskList[index]["Status"] == "InProgress"
                                 ? Icons.pause
-                                : items[index]["Status"] == "Completed"
+                                : widget.TaskList[index]["Status"] ==
+                                        "Completed"
                                     ? Icons.done
                                     : Icons.close,
                         color: Colors.white,
@@ -107,11 +81,11 @@ class _TaskListView extends State<TaskListView> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
                       Text(
-                        items[index]["Date"],
+                        widget.TaskList[index]["Date"],
                         style: TextStyle(color: Colors.black54, fontSize: 14),
                       ),
                       Text(
-                        "${items[index]["Duration"]} Hours",
+                        "${widget.TaskList[index]["Duration"]} Hours",
                         style: TextStyle(color: Colors.black54, fontSize: 14),
                       )
                     ],

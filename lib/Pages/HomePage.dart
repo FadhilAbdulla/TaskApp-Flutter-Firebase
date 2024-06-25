@@ -12,6 +12,33 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   final myController = TextEditingController();
 
+  final List<Map> items = [
+    {
+      "Category": "Ui Ux Design",
+      "Name": "Disk Task Management App",
+      "Description": "Redesign fashion app for up dribble",
+      "Date": "Today 10:00AM",
+      "Duration": "5",
+      "Status": "Completed"
+    },
+    {
+      "Category": "Mobile Developing",
+      "Name": "Ios Mobile Application",
+      "Description": "sample Redesign fashion app for up dribble",
+      "Date": "Today 5:00AM",
+      "Duration": "4",
+      "Status": "InProgress"
+    },
+    {
+      "Category": "Web developing",
+      "Name": "Web Application deployment",
+      "Description": "Redesign fashion app for up dribble",
+      "Date": "Today 9:00AM",
+      "Duration": "4.5",
+      "Status": "ToDo"
+    },
+  ];
+
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -56,13 +83,17 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
         ),
-        body: const TabBarView(
+        body: TabBarView(
           children: <Widget>[
             Center(
-              child: TaskListView(),
+              child: TaskListView(
+                TaskList: [items[0], items[1], items[2]],
+              ),
             ),
             Center(
-              child: Text("It's rainy here"),
+              child: TaskListView(
+                TaskList: [items[0], items[1]],
+              ),
             )
           ],
         ),
