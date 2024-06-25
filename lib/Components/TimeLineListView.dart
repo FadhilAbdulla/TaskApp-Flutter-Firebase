@@ -3,16 +3,16 @@ import './ProfileImageAvatar.dart';
 import './ImageOverlap.dart';
 import './CustomProgressBar.dart';
 
-class ProjectListView extends StatefulWidget {
-  const ProjectListView({super.key, required this.ProjectList});
+class TimeLineListView extends StatefulWidget {
+  const TimeLineListView({super.key, required this.ProjectList});
 
   final List<Map> ProjectList;
 
   @override
-  State<ProjectListView> createState() => _ProjectListView();
+  State<TimeLineListView> createState() => _TimeLineListView();
 }
 
-class _ProjectListView extends State<ProjectListView> {
+class _TimeLineListView extends State<TimeLineListView> {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
@@ -59,40 +59,8 @@ class _ProjectListView extends State<ProjectListView> {
                               fontWeight: FontWeight.w300, fontSize: 14))),
                   ImageOverlap(
                       ImageUrlList: widget.ProjectList[index]["UserImages"]),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      Container(
-                        margin: EdgeInsets.fromLTRB(0, 10, 0, 10),
-                        padding: EdgeInsets.all(4),
-                        height: 28,
-                        width: 90,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10.0),
-                          border: Border.all(
-                            width: 0.5,
-                            color: Colors.black,
-                          ),
-                        ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Container(
-                              width: 6,
-                              height: 6,
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(100),
-                                  color: Colors.red),
-                            ),
-                            Text(
-                              "${widget.ProjectList[index]["Priority"]} priority",
-                              style: TextStyle(fontSize: 12),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Text("pending")
-                    ],
+                  SizedBox(
+                    height: 10,
                   ),
                   CustomProgressBar(
                     Progress: widget.ProjectList[index]["Progress"],

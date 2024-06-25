@@ -13,27 +13,35 @@ class _CustomSearchBar extends State<CustomSearchBar> {
   @override
   Widget build(BuildContext context) {
     return Container(
-        height: 30,
-        margin: EdgeInsets.fromLTRB(0, 10, 0, 0),
-        padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
-        decoration: BoxDecoration(
-          color: Color.fromARGB(163, 207, 207, 207),
-          borderRadius: BorderRadius.circular(10), // Background color
-        ),
-        child: Row(
-          children: <Widget>[
-            Icon(
-              Icons.search,
+        padding: EdgeInsets.fromLTRB(30, 0, 30, 10),
+        height: 50,
+        child: SearchBar(
+          hintText: 'Search your task',
+          hintStyle: WidgetStateProperty.all(
+            TextStyle(
+                color: Color.fromARGB(255, 220, 220, 220),
+                // fontStyle: FontStyle.italic,
+                fontWeight: FontWeight.w400),
+          ),
+          controller: myController,
+          textStyle: WidgetStateProperty.all(
+            TextStyle(
               color: Colors.black87,
-              size: 18.0,
-              semanticLabel: 'Text to announce in accessibility modes',
+              fontSize: 16,
             ),
-            TextField(
-              controller: myController,
-              style: TextStyle(fontSize: 12),
-              decoration: (InputDecoration(hintText: "Search your task")),
-            )
-          ],
+          ),
+          leading: Container(
+            child:
+                Icon(Icons.search, color: Color.fromARGB(255, 220, 220, 220)),
+            padding: EdgeInsets.only(left: 10),
+          ),
+          backgroundColor: WidgetStateProperty.all(Colors.white),
+          elevation: WidgetStateProperty.all(5),
+          shape: WidgetStateProperty.all(
+            RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10),
+            ),
+          ),
         ));
   }
 }

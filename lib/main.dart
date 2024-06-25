@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'Pages/BottomNavigation.dart';
-import 'Pages/SignIn.dart';
+import 'Pages/NotificationPage.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,11 +15,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        colorScheme:
-            ColorScheme.fromSeed(seedColor: Color.fromARGB(255, 240, 240, 240)),
-        useMaterial3: true,
-      ),
-      home: const BottomNavigation(),
+          colorScheme: ColorScheme.fromSeed(
+              seedColor: Color.fromARGB(255, 240, 240, 240)),
+          useMaterial3: true,
+          fontFamily: "Roboto"),
+      home: const NotificationPage(),
     );
   }
 }

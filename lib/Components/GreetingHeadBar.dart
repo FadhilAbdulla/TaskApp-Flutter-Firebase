@@ -10,9 +10,6 @@ class GreetingHeadBar extends StatefulWidget {
 }
 
 class _GreetingHeadBar extends State<GreetingHeadBar> {
-  final myController = TextEditingController();
-  final placeholder = "sample text";
-
   @override
   Widget build(BuildContext context) {
     return Container(

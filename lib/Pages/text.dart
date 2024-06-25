@@ -141,3 +141,80 @@ class _ModalBottomSheetExampleState extends State<ModalBottomSheetExample> {
     );
   }
 }
+
+
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Custom Bottom Sheet'),
+        ),
+        body: Center(
+          child: ElevatedButton(
+            onPressed: () {
+              showModalBottomSheet<void>(
+                context: context,
+                isScrollControlled: true,
+                builder: (BuildContext context) {
+                  return DraggableScrollableSheet(
+                    initialChildSize: 0.75, // Set the initial size to 75% of screen height
+                    minChildSize: 0.1, // Set the minimum size to 10% of screen height
+                    maxChildSize: 1.0, // Set the maximum size to 100% of screen height
+                    expand: false,
+                    builder: (BuildContext context, ScrollController scrollController) {
+                      return NewTaskModal(scrollController: scrollController);
+                    },
+                  );
+                },
+              );
+            },
+            child: Text('Show Bottom Sheet'),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class NewTaskModal extends StatelessWidget {
+  final ScrollController scrollController;
+
+  NewTaskModal({required this.scrollController});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.all(16.0),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(20),
+          topRight: Radius.circular(20),
+        ),
+      ),
+      child: ListView(
+        controller: scrollController,
+        children: <Widget>[
+          Text(
+            'This is a new task modal.',
+            style: TextStyle(fontSize: 20),
+          ),
+          SizedBox(height: 20),
+          Text(
+            'You can add more content here...',
+            style: TextStyle(fontSize: 16),
+          ),
+          // Add more widgets here as needed
+        ],
+      ),
+    );
+  }
+}

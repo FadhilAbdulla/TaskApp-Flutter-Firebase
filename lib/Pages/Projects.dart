@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import '../Components/ProjectListView.dart';
+import '../Components/CustomSearchBar.dart';
+import '../Components//DefaultHeader.dart';
 
 class Projects extends StatefulWidget {
   const Projects({
@@ -17,7 +19,7 @@ class _Projects extends State<Projects> {
       "Description": "Redesign fashion app for up dribble",
       "Priority": "High",
       "Status": "Completed",
-      "Progress": "64",
+      "Progress": 100.0,
       "UserImages": [
         "https://picsum.photos/200/300",
         "https://picsum.photos/200/300",
@@ -30,7 +32,7 @@ class _Projects extends State<Projects> {
       "Description": "Redesign fashion app for up dribble",
       "Priority": "High",
       "Status": "Completed",
-      "Progress": "64",
+      "Progress": 80.0,
       "UserImages": [
         "https://picsum.photos/200/300",
         "https://picsum.photos/200/300",
@@ -43,7 +45,7 @@ class _Projects extends State<Projects> {
       "Description": "Redesign fashion app for up dribble",
       "Priority": "High",
       "Status": "Completed",
-      "Progress": "64",
+      "Progress": 64.0,
       "UserImages": [
         "https://picsum.photos/200/300",
         "https://picsum.photos/200/300",
@@ -53,11 +55,26 @@ class _Projects extends State<Projects> {
   ];
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-        child: Container(
-      child: ProjectListView(
-        ProjectList: [items[0], items[2]],
+    return Scaffold(
+      appBar: AppBar(
+        title: DefaultHeader(
+          BackButtonPresent: true,
+          SettingsButtonPresent: false,
+          header: "Projects",
+        ),
+        bottom: PreferredSize(
+          preferredSize: Size.fromHeight(70.0),
+          child: CustomSearchBar(),
+        ),
       ),
-    ));
+      body: Center(
+        child: ProjectListView(
+          ProjectList: [
+            items[0],
+            items[2],
+          ],
+        ),
+      ),
+    );
   }
 }

@@ -28,7 +28,7 @@ class _TextAreaSimple extends State<TextAreaSimple> {
       margin: EdgeInsets.fromLTRB(0, 20, 0, 0),
       child: TextField(
         controller: myController,
-        style: TextStyle(fontSize: 12), // Set font size here
+        style: TextStyle(fontSize: 13), // Set font size here
 
         decoration: InputDecoration(
             hintText: '${widget.placeholder}',

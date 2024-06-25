@@ -16,8 +16,8 @@ class _ProfileImageAvatar extends State<ProfileImageAvatar> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 50, // Adjust width and height to control the size of the image
-      height: 50,
+      width: 40, // Adjust width and height to control the size of the image
+      height: 40,
       decoration: BoxDecoration(
         shape: BoxShape.circle,
         border: Border.all(
@@ -28,7 +28,7 @@ class _ProfileImageAvatar extends State<ProfileImageAvatar> {
       child: ClipRRect(
         borderRadius: BorderRadius.circular(30),
         child: CircleAvatar(
-          radius: 25,
+          radius: 20,
           backgroundImage: NetworkImage(
             widget.imageUrl,
           ),
