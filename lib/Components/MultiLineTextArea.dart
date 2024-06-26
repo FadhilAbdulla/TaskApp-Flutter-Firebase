@@ -20,23 +20,25 @@ class _MultiLineTextArea extends State<MultiLineTextArea> {
         Text(
           widget.Title,
           style: TextStyle(
-              fontSize: 13,
-              color: Color.fromARGB(255, 180, 180, 180),
+              fontSize: 14,
+              color: Color.fromARGB(255, 153, 153, 153),
               fontWeight: FontWeight.w600),
         ),
         Container(
-          width: 400,
           margin: EdgeInsets.fromLTRB(0, 5, 0, 0),
           child: TextField(
             maxLines: 3,
             // controller: myController,
-            style: TextStyle(fontSize: 12), // Set font size here
+            style: TextStyle(
+                fontSize: 12,
+                fontWeight: FontWeight.w400,
+                fontFamily: 'Poppins'), // Set font size here
 
             decoration: InputDecoration(
                 hintText: widget.HintText,
                 enabledBorder: OutlineInputBorder(
                   borderSide: BorderSide(
-                    color: Color.fromARGB(160, 197, 197, 197),
+                    color: Color.fromARGB(255, 153, 153, 153),
                     width: 1.0,
                   ),
                   borderRadius: BorderRadius.circular(10.0),

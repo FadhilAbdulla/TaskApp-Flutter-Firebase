@@ -44,6 +44,7 @@ class _NotificationPage extends State<NotificationPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: DefaultHeader(
           BackButtonPresent: true,
           SettingsButtonPresent: false,
@@ -54,18 +55,7 @@ class _NotificationPage extends State<NotificationPage> {
         child: Container(
           padding: EdgeInsets.only(top: 10),
           child: NotificationListView(
-            ProjectList: [
-              items[0],
-              items[2],
-              items[0],
-              items[2],
-              items[0],
-              items[2],
-              items[0],
-              items[2],
-              items[0],
-              items[2],
-            ],
+            ProjectList: [items[0], items[2], items[0]],
           ),
         ),
       ),

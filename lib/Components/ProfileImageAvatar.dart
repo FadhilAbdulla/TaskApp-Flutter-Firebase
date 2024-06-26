@@ -16,8 +16,8 @@ class _ProfileImageAvatar extends State<ProfileImageAvatar> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 40, // Adjust width and height to control the size of the image
-      height: 40,
+      width: 32, // Adjust width and height to control the size of the image
+      height: 32,
       decoration: BoxDecoration(
         shape: BoxShape.circle,
         border: Border.all(

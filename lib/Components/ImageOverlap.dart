@@ -45,8 +45,8 @@ class _ImageOverlap extends State<ImageOverlap> {
             left: 60,
             child: Container(
               width:
-                  40, // Adjust width and height to control the size of the image
-              height: 40,
+                  32, // Adjust width and height to control the size of the image
+              height: 32,
               decoration: BoxDecoration(
                 color: Color.fromARGB(255, 240, 240, 240),
                 shape: BoxShape.circle,
@@ -56,7 +56,14 @@ class _ImageOverlap extends State<ImageOverlap> {
                   width: 2, // Set border width here
                 ),
               ),
-              child: Center(child: Text("2+")),
+              child: Center(
+                  child: Text(
+                "2+",
+                style: TextStyle(
+                    fontSize: 12,
+                    fontWeight: FontWeight.w300,
+                    color: Colors.black),
+              )),
             )),
       ],
     );

@@ -13,33 +13,33 @@ class _CustomSearchBar extends State<CustomSearchBar> {
   @override
   Widget build(BuildContext context) {
     return Container(
-        padding: EdgeInsets.fromLTRB(30, 0, 30, 10),
-        height: 50,
+        padding: EdgeInsets.fromLTRB(20, 0, 20, 10),
+        height: 44,
         child: SearchBar(
           hintText: 'Search your task',
           hintStyle: WidgetStateProperty.all(
             TextStyle(
-                color: Color.fromARGB(255, 220, 220, 220),
+                color: Color.fromARGB(255, 87, 87, 87),
                 // fontStyle: FontStyle.italic,
                 fontWeight: FontWeight.w400),
           ),
           controller: myController,
           textStyle: WidgetStateProperty.all(
             TextStyle(
-              color: Colors.black87,
-              fontSize: 16,
-            ),
+                color: Colors.black87,
+                fontSize: 14,
+                fontWeight: FontWeight.w400),
           ),
           leading: Container(
-            child:
-                Icon(Icons.search, color: Color.fromARGB(255, 220, 220, 220)),
+            child: Icon(Icons.search, color: Color.fromARGB(255, 87, 87, 87)),
             padding: EdgeInsets.only(left: 10),
           ),
-          backgroundColor: WidgetStateProperty.all(Colors.white),
-          elevation: WidgetStateProperty.all(5),
+          backgroundColor:
+              WidgetStateProperty.all(Color.fromARGB(255, 248, 248, 248)),
+          elevation: WidgetStateProperty.all(0),
           shape: WidgetStateProperty.all(
             RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(10),
+              borderRadius: BorderRadius.circular(12),
             ),
           ),
         ));

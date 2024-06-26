@@ -5,11 +5,13 @@ class DefaultHeader extends StatefulWidget {
       {super.key,
       required this.header,
       required this.BackButtonPresent,
-      required this.SettingsButtonPresent});
+      required this.SettingsButtonPresent,
+      this.onSettingsTap});
 
   final String header;
   final bool SettingsButtonPresent;
   final bool BackButtonPresent;
+  final VoidCallback? onSettingsTap;
 
   @override
   State<DefaultHeader> createState() => _DefaultHeader();
@@ -28,19 +30,24 @@ class _DefaultHeader extends State<DefaultHeader> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
             widget.BackButtonPresent
-                ? Container(
-                    padding: EdgeInsets.all(3),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(50),
-                      border: Border.all(
-                        color: Colors.black,
-                        width: 1.5,
+                ? InkWell(
+                    onTap: () {
+                      Navigator.of(context).pushReplacementNamed('/');
+                    },
+                    child: Container(
+                      padding: EdgeInsets.all(3),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(50),
+                        border: Border.all(
+                          color: Colors.black,
+                          width: 1.5,
+                        ),
                       ),
-                    ),
-                    child: Icon(
-                      Icons.arrow_back_sharp,
-                      color: Colors.black,
-                      size: 20.0,
+                      child: Icon(
+                        Icons.arrow_back_sharp,
+                        color: Colors.black,
+                        size: 20.0,
+                      ),
                     ),
                   )
                 : SizedBox(
@@ -48,23 +55,28 @@ class _DefaultHeader extends State<DefaultHeader> {
                   ),
             Text(widget.header,
                 style: TextStyle(
-                    fontWeight: FontWeight.w800,
+                    fontWeight: FontWeight.w700,
                     color: Colors.black,
                     fontSize: 16)),
             widget.SettingsButtonPresent
-                ? Container(
-                    padding: EdgeInsets.all(3),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(50),
-                      border: Border.all(
-                        color: Colors.grey,
-                        width: 1.5,
+                ? InkWell(
+                    onTap: () {
+                      widget.onSettingsTap!();
+                    },
+                    child: Container(
+                      padding: EdgeInsets.all(3),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(50),
+                        border: Border.all(
+                          color: Colors.grey,
+                          width: 1.5,
+                        ),
                       ),
-                    ),
-                    child: Icon(
-                      Icons.more_horiz,
-                      color: Colors.black,
-                      size: 20.0,
+                      child: Icon(
+                        Icons.more_horiz,
+                        color: Colors.black,
+                        size: 20.0,
+                      ),
                     ),
                   )
                 : SizedBox(

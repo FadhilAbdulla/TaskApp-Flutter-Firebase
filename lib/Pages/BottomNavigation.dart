@@ -51,37 +51,69 @@ class _BottomNavigationState extends State<BottomNavigation> {
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
+        items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
+            icon: Icon(
+              Icons.other_houses_outlined,
+              size: 24,
+            ),
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.folder),
+            icon: Icon(
+              Icons.folder_outlined,
+              size: 24,
+            ),
             label: 'Projects',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.add),
-            label: '',
+            icon: Container(
+              height: 58,
+              width: 58,
+              decoration: BoxDecoration(
+                color: Colors.black, // Background color for the container
+                shape: BoxShape.circle, // Makes the container rounded
+              ),
+              padding: EdgeInsets.all(8.0), // Padding inside the container
+              child: Icon(
+                Icons.add,
+                size: 30,
+
+                color: Colors.white, // Icon color inside the container
+              ),
+            ),
+            label: '', // Empty label for the add icon
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.calendar_month),
+            icon: Icon(
+              Icons.calendar_month,
+              size: 24,
+            ),
             label: 'Time Line',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.person_2_outlined),
+            icon: Icon(
+              Icons.account_circle_outlined,
+              size: 24,
+            ),
             label: 'Account',
           ),
         ],
         currentIndex: _selectedIndex,
 
         selectedItemColor: Colors.black, // Color for selected item icon
-        unselectedItemColor: Colors.grey, // Color for unselected item icons
+        unselectedItemColor: Colors.grey,
         onTap: _onItemTapped,
         showSelectedLabels: true, // To show labels for selected item
-        showUnselectedLabels: false, // To hide labels for unselected items
+        showUnselectedLabels: true, // To hide labels for unselected items
         type: BottomNavigationBarType.fixed, // To disable shifting animation
         backgroundColor: Color.fromARGB(255, 255, 255, 255),
+        selectedLabelStyle: TextStyle(
+          fontSize: 12, // Set the text size for selected labels
+        ),
+        unselectedLabelStyle: TextStyle(
+          fontSize: 12, // Set the text size for unselected labels
+        ),
       ),
     );
   }

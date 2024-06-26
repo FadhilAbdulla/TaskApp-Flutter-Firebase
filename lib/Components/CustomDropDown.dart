@@ -20,8 +20,8 @@ class _CustomDropDown extends State<CustomDropDown> {
         Text(
           widget.Title,
           style: TextStyle(
-              fontSize: 13,
-              color: Color.fromARGB(255, 180, 180, 180),
+              fontSize: 14,
+              color: Color.fromARGB(255, 153, 153, 153),
               fontWeight: FontWeight.w600),
         ),
         SizedBox(
@@ -29,10 +29,10 @@ class _CustomDropDown extends State<CustomDropDown> {
         ),
         Container(
           width: double.infinity, // Full width
-          height: 40, // Set height
+          height: 38, // Set height
           padding: EdgeInsets.symmetric(horizontal: 10),
           decoration: BoxDecoration(
-            border: Border.all(color: Color.fromARGB(255, 180, 180, 180)),
+            border: Border.all(color: Color.fromARGB(255, 153, 153, 153)),
             borderRadius: BorderRadius.circular(8),
           ),
           child: DropdownButton<String>(

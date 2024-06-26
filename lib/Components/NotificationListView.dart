@@ -44,14 +44,14 @@ class _NotificationListView extends State<NotificationListView> {
                     Text(
                       widget.ProjectList[index]["NotificationName"],
                       style:
-                          TextStyle(fontWeight: FontWeight.w700, fontSize: 16),
+                          TextStyle(fontWeight: FontWeight.w600, fontSize: 14),
                     )
                   ]),
                   Container(
                       margin: EdgeInsets.fromLTRB(0, 10, 0, 10),
                       child: Text(widget.ProjectList[index]["Description"],
                           style: TextStyle(
-                              fontWeight: FontWeight.w300, fontSize: 14))),
+                              fontWeight: FontWeight.w300, fontSize: 12))),
                   Divider(
                     color: const Color.fromARGB(255, 224, 224, 224),
                   ),
@@ -59,7 +59,7 @@ class _NotificationListView extends State<NotificationListView> {
                       margin: EdgeInsets.fromLTRB(0, 5, 0, 0),
                       child: Text("Link Preview",
                           style: TextStyle(
-                              fontWeight: FontWeight.w700, fontSize: 14))),
+                              fontWeight: FontWeight.w600, fontSize: 12))),
                   Container(
                       margin: EdgeInsets.fromLTRB(0, 2, 0, 15),
                       child: Text(widget.ProjectList[index]["LinkDescription"],
@@ -67,14 +67,52 @@ class _NotificationListView extends State<NotificationListView> {
                               fontWeight: FontWeight.w300, fontSize: 12))),
                   Row(
                     children: [
-                      ResponsiveButton(
-                        textinside: "Approve",
-                        blackButton: true,
+                      Container(
+                        alignment: Alignment.center,
+                        height: 26,
+                        padding: EdgeInsets.fromLTRB(20, 2, 20, 2),
+                        margin: EdgeInsets.only(right: 15),
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(8.0),
+                            color: Colors.black,
+                            border: Border.all(color: Colors.black, width: 1)),
+                        child: Text(
+                          "Approve",
+                          style: TextStyle(
+                              fontSize: 12.0,
+                              fontWeight: FontWeight.w500,
+                              color: Colors.white),
+                          // Adjust font size as needed
+                          textAlign: TextAlign
+                              .center, // Adjust text alignment as needed
+                          maxLines: 1, // Ensure text does not wrap
+                          overflow: TextOverflow
+                              .ellipsis, // Handle overflow if text is too long
+                        ),
                       ),
-                      ResponsiveButton(
-                        textinside: "Deny",
-                        blackButton: false,
-                      )
+                      Container(
+                        alignment: Alignment.center,
+                        height: 26,
+                        padding: EdgeInsets.fromLTRB(10, 2, 10, 2),
+                        margin: EdgeInsets.only(right: 20),
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(8.0),
+                            color: Colors.white,
+                            border: Border.all(color: Colors.black, width: 1)),
+                        child: Text(
+                          "Deny",
+                          style: TextStyle(
+                              fontSize: 12.0,
+                              fontWeight: FontWeight.w500,
+                              color:
+                                  Colors.black), // Adjust font size as needed
+                          textAlign: TextAlign
+                              .center, // Adjust text alignment as needed
+                          maxLines: 1, // Ensure text does not wrap
+                          overflow: TextOverflow
+                              .ellipsis, // Handle overflow if text is too long
+                        ),
+                      ),
                     ],
                   ),
                 ]),

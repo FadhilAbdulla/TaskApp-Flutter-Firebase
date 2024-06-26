@@ -46,17 +46,31 @@ class _ProjectListView extends State<ProjectListView> {
                         Text(
                           widget.ProjectList[index]["ProjectName"],
                           style: TextStyle(
-                              fontWeight: FontWeight.w700, fontSize: 16),
+                              fontWeight: FontWeight.w700, fontSize: 14),
                         )
                       ]),
-                      Container(child: Icon(Icons.settings))
+                      Container(
+                        padding: EdgeInsets.all(3),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(50),
+                          border: Border.all(
+                            color: Colors.grey,
+                            width: 1.5,
+                          ),
+                        ),
+                        child: Icon(
+                          Icons.more_horiz,
+                          color: Colors.black,
+                          size: 16.0,
+                        ),
+                      )
                     ],
                   ),
                   Container(
                       margin: EdgeInsets.fromLTRB(0, 10, 0, 15),
                       child: Text(widget.ProjectList[index]["Description"],
                           style: TextStyle(
-                              fontWeight: FontWeight.w300, fontSize: 14))),
+                              fontWeight: FontWeight.w400, fontSize: 12))),
                   ImageOverlap(
                       ImageUrlList: widget.ProjectList[index]["UserImages"]),
                   Row(
@@ -64,9 +78,9 @@ class _ProjectListView extends State<ProjectListView> {
                     children: <Widget>[
                       Container(
                         margin: EdgeInsets.fromLTRB(0, 10, 0, 10),
-                        padding: EdgeInsets.all(4),
-                        height: 28,
-                        width: 90,
+                        padding: EdgeInsets.fromLTRB(10, 4, 10, 4),
+                        height: 26,
+                        width: 95,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10.0),
                           border: Border.all(
@@ -86,12 +100,23 @@ class _ProjectListView extends State<ProjectListView> {
                             ),
                             Text(
                               "${widget.ProjectList[index]["Priority"]} priority",
-                              style: TextStyle(fontSize: 12),
+                              style: TextStyle(
+                                  fontSize: 11, fontWeight: FontWeight.w400),
                             ),
                           ],
                         ),
                       ),
-                      Text("pending")
+                      Text(
+                        widget.ProjectList[index]["Status"] == "ToDo"
+                            ? "Pending"
+                            : "Work on",
+                        style: TextStyle(
+                            color: widget.ProjectList[index]["Status"] == "ToDo"
+                                ? Color.fromARGB(255, 255, 138, 0)
+                                : Color.fromARGB(255, 0, 212, 21),
+                            fontSize: 12,
+                            fontWeight: FontWeight.w500),
+                      )
                     ],
                   ),
                   CustomProgressBar(

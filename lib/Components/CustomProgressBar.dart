@@ -21,13 +21,15 @@ class _CustomProgressBar extends State<CustomProgressBar> {
                 Text(
                   "Progress",
                   style: TextStyle(
-                      fontWeight: FontWeight.w400,
-                      color: Color.fromARGB(221, 111, 111, 111)),
+                      fontWeight: FontWeight.w500,
+                      fontSize: 12,
+                      color: Color.fromARGB(225, 120, 120, 120)),
                 ),
                 Text("${widget.Progress}%",
                     style: TextStyle(
                         fontWeight: FontWeight.w400,
-                        color: const Color.fromARGB(221, 111, 111, 111)))
+                        fontSize: 12,
+                        color: const Color.fromARGB(225, 120, 120, 120)))
               ],
             )),
         LinearProgressIndicator(

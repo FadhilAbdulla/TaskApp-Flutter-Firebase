@@ -13,7 +13,6 @@ class _GreetingHeadBar extends State<GreetingHeadBar> {
   @override
   Widget build(BuildContext context) {
     return Container(
-        width: 400,
         height: 70,
         margin: EdgeInsets.all(10),
         padding: EdgeInsets.only(top: 20),
@@ -27,25 +26,35 @@ class _GreetingHeadBar extends State<GreetingHeadBar> {
                     style: TextStyle(
                         fontWeight: FontWeight.normal,
                         color: Colors.black54,
-                        fontSize: 15)),
-                Text("Let's start your task",
+                        fontFamily: "Montserrat",
+                        fontSize: 13)),
+                Text("Let's Start your task",
                     style: TextStyle(
-                        fontWeight: FontWeight.bold,
+                        fontWeight: FontWeight.w700,
                         color: Colors.black,
-                        fontSize: 20)),
+                        fontFamily: "Montserrat",
+                        fontSize: 16)),
               ],
             ),
-            Container(
-              padding: EdgeInsets.all(8),
-              decoration: BoxDecoration(
-                color: Color.fromARGB(89, 197, 197, 197),
-                borderRadius: BorderRadius.circular(50),
-              ),
-              child: Icon(
-                Icons.notifications_outlined,
-                color: Colors.black,
-                size: 24.0,
-                semanticLabel: 'Text to announce in accessibility modes',
+            InkWell(
+              onTap: () {
+                Navigator.of(context).pushReplacementNamed('/notification');
+              },
+              child: Container(
+                height: 40,
+                width: 40,
+                padding: EdgeInsets.all(5),
+                margin: EdgeInsets.only(bottom: 8),
+                decoration: BoxDecoration(
+                  color: Color.fromARGB(255, 248, 248, 248),
+                  borderRadius: BorderRadius.circular(50),
+                ),
+                child: Icon(
+                  Icons.notifications_outlined,
+                  color: Colors.black,
+                  size: 24.0,
+                  semanticLabel: 'Hover to notification',
+                ),
               ),
             ),
           ],

@@ -14,42 +14,84 @@ class TimeLine extends StatefulWidget {
 class _TimeLine extends State<TimeLine> {
   final List<Map> items = [
     {
+      "id": "1",
       "ImageUrl": "https://picsum.photos/200/300",
       "ProjectName": "Disk Task Management App",
       "Description": "Redesign fashion app for up dribble",
-      "Priority": "High",
-      "Status": "Completed",
-      "Progress": 100.0,
-      "UserImages": [
-        "https://picsum.photos/200/300",
-        "https://picsum.photos/200/300",
-        "https://picsum.photos/200/300"
-      ]
-    },
-    {
-      "ImageUrl": "https://picsum.photos/200/300",
-      "ProjectName": "Disk Task Management App",
-      "Description": "Redesign fashion app for up dribble",
-      "Priority": "High",
       "Status": "Completed",
       "Progress": 80.0,
       "UserImages": [
         "https://picsum.photos/200/300",
         "https://picsum.photos/200/300",
         "https://picsum.photos/200/300"
+      ],
+      "Events": [
+        {
+          "Title": "Meeting with Client",
+          "Priority": "High",
+          "Time": "11:00",
+          "LinkToCopy": "www.sample.com"
+        },
+        {
+          "Title": "Meeting with Client",
+          "Priority": "High",
+          "Time": "11:00",
+          "LinkToCopy": "www.sample.com"
+        }
       ]
     },
     {
+      "id": "2",
       "ImageUrl": "https://picsum.photos/200/300",
       "ProjectName": "Disk Task Management App",
       "Description": "Redesign fashion app for up dribble",
-      "Priority": "High",
       "Status": "Completed",
-      "Progress": 64.0,
+      "Progress": 80.0,
       "UserImages": [
         "https://picsum.photos/200/300",
         "https://picsum.photos/200/300",
         "https://picsum.photos/200/300"
+      ],
+      "Events": [
+        {
+          "Title": "Meeting with Client",
+          "Priority": "High",
+          "Time": "11:00",
+          "LinkToCopy": "www.sample.com"
+        },
+        {
+          "Title": "Meeting with Client",
+          "Priority": "High",
+          "Time": "11:00",
+          "LinkToCopy": "www.sample.com"
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "ImageUrl": "https://picsum.photos/200/300",
+      "ProjectName": "Disk Task Management App",
+      "Description": "Redesign fashion app for up dribble",
+      "Status": "Completed",
+      "Progress": 80.0,
+      "UserImages": [
+        "https://picsum.photos/200/300",
+        "https://picsum.photos/200/300",
+        "https://picsum.photos/200/300"
+      ],
+      "Events": [
+        {
+          "Title": "Meeting with Client",
+          "Priority": "High",
+          "Time": "11:00",
+          "LinkToCopy": "www.sample.com"
+        },
+        {
+          "Title": "Meeting with Client",
+          "Priority": "High",
+          "Time": "11:00",
+          "LinkToCopy": "www.sample.com/sampe/sam,plezdsafygdskuy"
+        }
       ]
     },
   ];
@@ -57,13 +99,14 @@ class _TimeLine extends State<TimeLine> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: DefaultHeader(
           BackButtonPresent: true,
           SettingsButtonPresent: false,
           header: "Time Line",
         ),
         bottom: PreferredSize(
-          preferredSize: Size.fromHeight(120.0),
+          preferredSize: Size.fromHeight(100.0),
           child: DateTime(Date: "May,18", Day: "24,Tusday"),
         ),
       ),

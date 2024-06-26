@@ -18,7 +18,7 @@ class _Projects extends State<Projects> {
       "ProjectName": "Disk Task Management App",
       "Description": "Redesign fashion app for up dribble",
       "Priority": "High",
-      "Status": "Completed",
+      "Status": "InProgress",
       "Progress": 100.0,
       "UserImages": [
         "https://picsum.photos/200/300",
@@ -31,7 +31,7 @@ class _Projects extends State<Projects> {
       "ProjectName": "Disk Task Management App",
       "Description": "Redesign fashion app for up dribble",
       "Priority": "High",
-      "Status": "Completed",
+      "Status": "ToDo",
       "Progress": 80.0,
       "UserImages": [
         "https://picsum.photos/200/300",
@@ -44,7 +44,7 @@ class _Projects extends State<Projects> {
       "ProjectName": "Disk Task Management App",
       "Description": "Redesign fashion app for up dribble",
       "Priority": "High",
-      "Status": "Completed",
+      "Status": "ToDo",
       "Progress": 64.0,
       "UserImages": [
         "https://picsum.photos/200/300",
@@ -57,6 +57,7 @@ class _Projects extends State<Projects> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: DefaultHeader(
           BackButtonPresent: true,
           SettingsButtonPresent: false,

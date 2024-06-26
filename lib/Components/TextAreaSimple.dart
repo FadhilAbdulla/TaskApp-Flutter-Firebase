@@ -23,18 +23,21 @@ class _TextAreaSimple extends State<TextAreaSimple> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      alignment: Alignment.centerLeft,
       width: 400,
-      height: 45,
+      height: 42,
       margin: EdgeInsets.fromLTRB(0, 20, 0, 0),
+      // padding: EdgeInsets.fromLTRB(5, 5, 5, bottom),
       child: TextField(
         controller: myController,
-        style: TextStyle(fontSize: 13), // Set font size here
+        style: TextStyle(
+            fontSize: 14, fontWeight: FontWeight.w400), // Set font size here
 
         decoration: InputDecoration(
             hintText: '${widget.placeholder}',
             enabledBorder: OutlineInputBorder(
               borderSide: BorderSide(
-                color: Color.fromARGB(160, 197, 197, 197),
+                color: Color.fromARGB(255, 222, 222, 222),
                 width: 1.0,
               ),
               borderRadius: BorderRadius.circular(10.0),
@@ -42,7 +45,7 @@ class _TextAreaSimple extends State<TextAreaSimple> {
             focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(10.0),
               borderSide: BorderSide(
-                color: Color.fromARGB(159, 86, 86, 86),
+                color: Color.fromARGB(255, 96, 96, 96),
                 width: 1.0,
               ),
             )),

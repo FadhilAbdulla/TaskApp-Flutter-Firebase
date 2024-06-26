@@ -17,22 +17,21 @@ class _DateTime extends State<DateTime> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 400,
-      height: 100,
-      padding: EdgeInsets.fromLTRB(20, 0, 0, 0),
+      alignment: Alignment.topLeft,
+      padding: EdgeInsets.fromLTRB(20, 0, 0, 10),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(widget.Date,
               style: TextStyle(
-                  color: Colors.black, // Text color
-                  fontSize: 28,
-                  fontWeight: FontWeight.bold)),
+                  color: Color.fromARGB(255, 38, 38, 38), // Text color
+                  fontSize: 24,
+                  fontWeight: FontWeight.w600)),
           Text(widget.Day,
               style: TextStyle(
-                  color: Colors.black, // Text color
-                  fontSize: 28, // F
-                  fontWeight: FontWeight.bold)),
+                  color: Color.fromARGB(255, 38, 38, 38), // Text color
+                  fontSize: 24, // F
+                  fontWeight: FontWeight.w600)),
         ],
       ),
     );
