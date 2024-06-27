@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../Components/GreetingHeadBar.dart';
 import '../Components/TaskListView.dart';
 import '../Components/CustomSearchBar.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -13,7 +14,7 @@ class _HomePageState extends State<HomePage>
     with SingleTickerProviderStateMixin {
   final myController = TextEditingController();
 
-  final List<Map> items = [
+  final List<Map> Todayitems = [
     {
       "Category": "Ui Ux Design",
       "Name": "Disk Task Management App",
@@ -36,6 +37,35 @@ class _HomePageState extends State<HomePage>
       "Description": "Redesign fashion app for up dribble",
       "Date": "Today 9:00AM",
       "Duration": "4.5",
+      "Status": "ToDo"
+    },
+  ];
+  final List<Map> Pastitems = [
+    {
+      "Category": "Ui Ux Design",
+      "Name": "Disk Task Management App",
+      "Description": "Redesign fashion app for up dribble",
+      "Date": "Apr 20-2024 , 10:00 am",
+      "Points": "5",
+      "Duration": "5",
+      "Status": "Completed"
+    },
+    {
+      "Category": "Mobile Developing",
+      "Name": "Ios Mobile Application",
+      "Description": "sample Redesign fashion app for up dribble",
+      "Date": "Apr 20-2024 , 10:00 am",
+      "Duration": "4",
+      "Points": "5",
+      "Status": "InProgress"
+    },
+    {
+      "Category": "Web developing",
+      "Name": "Web Application deployment",
+      "Description": "Redesign fashion app for up dribble",
+      "Date": "Apr 20-2024 , 10:00 am",
+      "Duration": "4.5",
+      "Points": "5",
       "Status": "ToDo"
     },
   ];
@@ -104,10 +134,9 @@ class _HomePageState extends State<HomePage>
                       ), // Adjust bottom padding for gap
                       child: Text(
                         "Today",
-                        style: TextStyle(
-                            fontFamily: "Montserrat",
-                            fontWeight: FontWeight.w400,
-                            fontSize: 18),
+                        style: GoogleFonts.montserrat(
+                            textStyle: TextStyle(
+                                fontWeight: FontWeight.w500, fontSize: 18)),
                       ),
                     ),
                     Padding(
@@ -119,10 +148,11 @@ class _HomePageState extends State<HomePage>
                       ), // Adjust bottom padding for gap
                       child: Text(
                         "History",
-                        style: TextStyle(
-                            fontFamily: "Montserrat",
-                            fontWeight: FontWeight.w400,
-                            fontSize: 18),
+                        style: GoogleFonts.montserrat(
+                            textStyle: TextStyle(
+                                fontFamily: "Montserrat",
+                                fontWeight: FontWeight.w500,
+                                fontSize: 18)),
                       ),
                     )
                   ],
@@ -132,16 +162,18 @@ class _HomePageState extends State<HomePage>
           ),
         ),
         body: TabBarView(
-          // controller: _tabController,
+          controller: _tabController,
           children: <Widget>[
             Center(
               child: TaskListView(
-                TaskList: [items[0], items[1], items[2]],
+                TaskList: [Todayitems[0], Todayitems[1], Todayitems[2]],
+                IsToday: true,
               ),
             ),
             Center(
               child: TaskListView(
-                TaskList: [items[0], items[1]],
+                TaskList: [Pastitems[0], Pastitems[1]],
+                IsToday: false,
               ),
             )
           ],

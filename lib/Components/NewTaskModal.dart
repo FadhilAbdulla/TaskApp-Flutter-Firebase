@@ -18,10 +18,14 @@ class _NewTaskModal extends State<NewTaskModal> {
   List<String> ProjectList = ["Project1", "Project2", "Project3", "Project4"];
   List<String> TaskList = ["Task1", "Task2", "Task3", "Task4"];
 
-  ChangeCalenderVisibility() {
+  void ChangeCalenderVisibility() {
     setState(() {
       _ShowCalender = !_ShowCalender;
     });
+  }
+
+  void CreateNewTask() {
+    Navigator.pop(context);
   }
 
   @override
@@ -112,8 +116,7 @@ class _NewTaskModal extends State<NewTaskModal> {
             ),
             Center(
               child: Normalbutton(
-                textinside: "Create",
-              ),
+                  textinside: "Create", ButtonPressed: CreateNewTask),
             ),
           ],
         ),

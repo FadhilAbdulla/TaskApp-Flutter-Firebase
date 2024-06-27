@@ -19,7 +19,7 @@ class _TaskManager extends State<TaskManager> {
         "Design Task management App Design Task management AppDesign Task management AppDesign Task management AppDesign Task management AppDesign Task management",
     "StartDate": "4Apr2024",
     "StartTime": "04:45Pm",
-    "Status": "Inprogress", // "Completed",
+    "Status": "Completed", // "Completed",
     "Points": "20",
     "Hours": "10",
     "Approved": "Ali"

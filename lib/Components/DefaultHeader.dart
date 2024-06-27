@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class DefaultHeader extends StatefulWidget {
   const DefaultHeader(
@@ -24,8 +25,7 @@ class _DefaultHeader extends State<DefaultHeader> {
   Widget build(BuildContext context) {
     return Container(
         height: 50,
-        margin: EdgeInsets.all(10),
-        padding: EdgeInsets.only(top: 20),
+        margin: EdgeInsets.fromLTRB(0, 0, 0, 10),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
@@ -35,6 +35,8 @@ class _DefaultHeader extends State<DefaultHeader> {
                       Navigator.of(context).pushReplacementNamed('/');
                     },
                     child: Container(
+                      height: 29,
+                      width: 29,
                       padding: EdgeInsets.all(3),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(50),
@@ -51,13 +53,14 @@ class _DefaultHeader extends State<DefaultHeader> {
                     ),
                   )
                 : SizedBox(
-                    width: 20,
+                    width: 29,
                   ),
             Text(widget.header,
-                style: TextStyle(
-                    fontWeight: FontWeight.w700,
-                    color: Colors.black,
-                    fontSize: 16)),
+                style: GoogleFonts.montserrat(
+                    textStyle: TextStyle(
+                        fontWeight: FontWeight.w700,
+                        color: Colors.black,
+                        fontSize: 16))),
             widget.SettingsButtonPresent
                 ? InkWell(
                     onTap: () {
@@ -80,7 +83,7 @@ class _DefaultHeader extends State<DefaultHeader> {
                     ),
                   )
                 : SizedBox(
-                    width: 20,
+                    width: 30,
                   ),
           ],
         ));

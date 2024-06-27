@@ -64,7 +64,7 @@ class _Projects extends State<Projects> {
           header: "Projects",
         ),
         bottom: PreferredSize(
-          preferredSize: Size.fromHeight(70.0),
+          preferredSize: Size.fromHeight(52.0),
           child: CustomSearchBar(),
         ),
       ),

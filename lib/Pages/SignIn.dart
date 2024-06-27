@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../Components/TextAreaSimple.dart';
 import '../Components/NormalButton.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class SignIn extends StatefulWidget {
   const SignIn({super.key});
@@ -28,20 +29,25 @@ class _SignInState extends State<SignIn> {
               child: Container(
                   height: 87,
                   width: 172,
-                  margin: EdgeInsets.only(bottom: 150),
+                  margin: EdgeInsets.only(bottom: 120),
                   child: Image.asset('assets/Images/image.png')),
             ),
             Center(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text(
+                  Text(
                     'Welcome back',
-                    style: TextStyle(fontWeight: FontWeight.w700, fontSize: 16),
+                    style: GoogleFonts.montserrat(
+                        textStyle: TextStyle(
+                            fontWeight: FontWeight.w700, fontSize: 16)),
                   ),
-                  const Text(
+                  Text(
                     'Please Enter your email and password to login',
-                    style: TextStyle(fontSize: 12, fontWeight: FontWeight.w400),
+                    style: GoogleFonts.montserrat(
+                      textStyle:
+                          TextStyle(fontSize: 12, fontWeight: FontWeight.w400),
+                    ),
                   ),
                   TextAreaSimple(placeholder: 'Email address'),
                   TextAreaSimple(placeholder: 'Password'),

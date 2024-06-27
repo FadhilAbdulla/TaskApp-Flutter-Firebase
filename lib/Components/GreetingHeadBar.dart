@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class GreetingHeadBar extends StatefulWidget {
   const GreetingHeadBar({super.key, required this.UserName});
@@ -22,40 +23,71 @@ class _GreetingHeadBar extends State<GreetingHeadBar> {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text('Good Morning, ${widget.UserName} !',
-                    style: TextStyle(
-                        fontWeight: FontWeight.normal,
-                        color: Colors.black54,
-                        fontFamily: "Montserrat",
-                        fontSize: 13)),
+                Row(
+                  children: [
+                    Text(
+                      'Good Morning, ${widget.UserName}!',
+                      style: GoogleFonts.montserrat(
+                        textStyle: TextStyle(
+                            fontWeight: FontWeight.w400,
+                            color: Colors.black54,
+                            fontFamily: "Montserrat",
+                            fontSize: 13),
+                      ),
+                    ),
+                    SizedBox(
+                      width: 10,
+                    ),
+                    Container(
+                      height: 8,
+                      width: 8,
+                      decoration: BoxDecoration(
+                        color: Color.fromARGB(255, 252, 78, 67),
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                    )
+                  ],
+                ),
                 Text("Let's Start your task",
-                    style: TextStyle(
-                        fontWeight: FontWeight.w700,
-                        color: Colors.black,
-                        fontFamily: "Montserrat",
-                        fontSize: 16)),
+                    style: GoogleFonts.montserrat(
+                        textStyle: TextStyle(
+                            fontWeight: FontWeight.w700,
+                            color: Colors.black,
+                            fontSize: 16))),
               ],
             ),
-            InkWell(
-              onTap: () {
-                Navigator.of(context).pushReplacementNamed('/notification');
-              },
-              child: Container(
-                height: 40,
-                width: 40,
-                padding: EdgeInsets.all(5),
-                margin: EdgeInsets.only(bottom: 8),
-                decoration: BoxDecoration(
-                  color: Color.fromARGB(255, 248, 248, 248),
-                  borderRadius: BorderRadius.circular(50),
+            Row(
+              children: [
+                Container(
+                  margin: EdgeInsets.fromLTRB(0, 0, 8, 8),
+                  child: Icon(
+                    Icons.manage_accounts_outlined,
+                    color: Colors.black,
+                    size: 24.0,
+                  ),
                 ),
-                child: Icon(
-                  Icons.notifications_outlined,
-                  color: Colors.black,
-                  size: 24.0,
-                  semanticLabel: 'Hover to notification',
+                InkWell(
+                  onTap: () {
+                    Navigator.of(context).pushReplacementNamed('/notification');
+                  },
+                  child: Container(
+                    height: 40,
+                    width: 40,
+                    padding: EdgeInsets.all(5),
+                    margin: EdgeInsets.only(bottom: 8),
+                    decoration: BoxDecoration(
+                      color: Color.fromARGB(255, 248, 248, 248),
+                      borderRadius: BorderRadius.circular(50),
+                    ),
+                    child: Icon(
+                      Icons.notifications_outlined,
+                      color: Colors.black,
+                      size: 24.0,
+                      semanticLabel: 'Hover to notification',
+                    ),
+                  ),
                 ),
-              ),
+              ],
             ),
           ],
         ));

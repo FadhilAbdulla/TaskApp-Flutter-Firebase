@@ -3,6 +3,7 @@ import 'Pages/BottomNavigation.dart';
 import 'Pages/TaskManager.dart';
 import 'Pages/SignIn.dart';
 import 'Pages/NotificationPage.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,6 +18,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'MVP Application',
       theme: ThemeData(
+          textTheme: GoogleFonts.montserratTextTheme(),
           primaryColor: Colors.white,
           scaffoldBackgroundColor: Colors.white,
           appBarTheme: AppBarTheme(

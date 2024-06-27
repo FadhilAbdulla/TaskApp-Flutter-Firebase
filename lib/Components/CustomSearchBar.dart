@@ -13,7 +13,7 @@ class _CustomSearchBar extends State<CustomSearchBar> {
   @override
   Widget build(BuildContext context) {
     return Container(
-        padding: EdgeInsets.fromLTRB(20, 0, 20, 10),
+        padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
         height: 44,
         child: SearchBar(
           hintText: 'Search your task',

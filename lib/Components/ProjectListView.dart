@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import './ProfileImageAvatar.dart';
 import './ImageOverlap.dart';
 import './CustomProgressBar.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class ProjectListView extends StatefulWidget {
   const ProjectListView({super.key, required this.ProjectList});
@@ -16,6 +17,7 @@ class _ProjectListView extends State<ProjectListView> {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
+      padding: EdgeInsets.only(top: 14),
       itemCount: widget.ProjectList.length,
       itemBuilder: (context, index) {
         return Card(
@@ -45,8 +47,9 @@ class _ProjectListView extends State<ProjectListView> {
                         ),
                         Text(
                           widget.ProjectList[index]["ProjectName"],
-                          style: TextStyle(
-                              fontWeight: FontWeight.w700, fontSize: 14),
+                          style: GoogleFonts.montserrat(
+                              textStyle: TextStyle(
+                                  fontWeight: FontWeight.w700, fontSize: 14)),
                         )
                       ]),
                       Container(
@@ -67,25 +70,26 @@ class _ProjectListView extends State<ProjectListView> {
                     ],
                   ),
                   Container(
-                      margin: EdgeInsets.fromLTRB(0, 10, 0, 15),
+                      margin: EdgeInsets.fromLTRB(0, 10, 0, 12),
                       child: Text(widget.ProjectList[index]["Description"],
-                          style: TextStyle(
-                              fontWeight: FontWeight.w400, fontSize: 12))),
+                          style: GoogleFonts.montserrat(
+                              textStyle: TextStyle(
+                                  fontWeight: FontWeight.w400, fontSize: 12)))),
                   ImageOverlap(
                       ImageUrlList: widget.ProjectList[index]["UserImages"]),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
                       Container(
-                        margin: EdgeInsets.fromLTRB(0, 10, 0, 10),
-                        padding: EdgeInsets.fromLTRB(10, 4, 10, 4),
+                        margin: EdgeInsets.fromLTRB(0, 10, 0, 5),
+                        padding: EdgeInsets.fromLTRB(5, 4, 5, 4),
                         height: 26,
                         width: 95,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10.0),
                           border: Border.all(
-                            width: 0.5,
-                            color: Colors.black,
+                            width: 1,
+                            color: Color.fromARGB(255, 211, 211, 211),
                           ),
                         ),
                         child: Row(
@@ -101,7 +105,9 @@ class _ProjectListView extends State<ProjectListView> {
                             Text(
                               "${widget.ProjectList[index]["Priority"]} priority",
                               style: TextStyle(
-                                  fontSize: 11, fontWeight: FontWeight.w400),
+                                  fontSize: 11,
+                                  fontWeight: FontWeight.w400,
+                                  color: Colors.black),
                             ),
                           ],
                         ),
