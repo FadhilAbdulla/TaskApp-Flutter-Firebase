@@ -2,9 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class GreetingHeadBar extends StatefulWidget {
-  const GreetingHeadBar({super.key, required this.UserName});
+  const GreetingHeadBar(
+      {super.key,
+      required this.UserName,
+      required this.Active,
+      required this.NotificationActive});
 
   final String UserName;
+  final bool Active;
+  final bool NotificationActive;
 
   @override
   State<GreetingHeadBar> createState() => _GreetingHeadBar();
@@ -36,14 +42,18 @@ class _GreetingHeadBar extends State<GreetingHeadBar> {
                       ),
                     ),
                     SizedBox(
-                      width: 10,
+                      width: 8,
                     ),
                     Container(
-                      height: 8,
-                      width: 8,
+                      height: 10,
+                      width: 10,
                       decoration: BoxDecoration(
-                        color: Color.fromARGB(255, 252, 78, 67),
-                        borderRadius: BorderRadius.circular(20),
+                        shape: BoxShape.circle,
+                        border: Border.all(
+                            width: 2, color: Color.fromRGBO(248, 248, 248, 1)),
+                        color: widget.Active
+                            ? Color.fromRGBO(252, 78, 67, 1)
+                            : Color.fromRGBO(67, 252, 108, 1),
                       ),
                     )
                   ],
@@ -59,32 +69,49 @@ class _GreetingHeadBar extends State<GreetingHeadBar> {
             Row(
               children: [
                 Container(
-                  margin: EdgeInsets.fromLTRB(0, 0, 8, 8),
-                  child: Icon(
-                    Icons.manage_accounts_outlined,
-                    color: Colors.black,
-                    size: 24.0,
+                  margin: EdgeInsets.fromLTRB(0, 0, 10, 8),
+                  child: Image.asset(
+                    "assets/Images/Icons/UserTimeLine.png",
+                    width: 21,
+                    height: 21,
                   ),
                 ),
                 InkWell(
                   onTap: () {
                     Navigator.of(context).pushReplacementNamed('/notification');
                   },
-                  child: Container(
-                    height: 40,
-                    width: 40,
-                    padding: EdgeInsets.all(5),
-                    margin: EdgeInsets.only(bottom: 8),
-                    decoration: BoxDecoration(
-                      color: Color.fromARGB(255, 248, 248, 248),
-                      borderRadius: BorderRadius.circular(50),
-                    ),
-                    child: Icon(
-                      Icons.notifications_outlined,
-                      color: Colors.black,
-                      size: 24.0,
-                      semanticLabel: 'Hover to notification',
-                    ),
+                  child: Stack(
+                    children: [
+                      Container(
+                        height: 40,
+                        width: 40,
+                        padding: EdgeInsets.all(8),
+                        margin: EdgeInsets.only(bottom: 8),
+                        decoration: BoxDecoration(
+                          color: Color.fromARGB(255, 248, 248, 248),
+                          borderRadius: BorderRadius.circular(50),
+                        ),
+                        child: Image.asset(
+                          "assets/Images/Icons/Notification.png",
+                          width: 23,
+                          height: 23,
+                        ),
+                      ),
+                      if (widget.NotificationActive)
+                        Positioned(
+                            top: 9,
+                            left: 21,
+                            child: Container(
+                              height: 10,
+                              width: 10,
+                              decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  border: Border.all(
+                                      width: 2,
+                                      color: Color.fromRGBO(248, 248, 248, 1)),
+                                  color: Color.fromRGBO(252, 78, 67, 1)),
+                            ))
+                    ],
                   ),
                 ),
               ],

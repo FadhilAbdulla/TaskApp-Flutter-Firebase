@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class IndividualTask extends StatefulWidget {
   const IndividualTask({super.key, required this.EventData});
@@ -40,12 +41,14 @@ class _IndividualTask extends State<IndividualTask> {
                   Expanded(
                     child: Text(
                       widget.EventData["Title"],
-                      style:
-                          TextStyle(fontWeight: FontWeight.w500, fontSize: 13),
+                      style: GoogleFonts.poppins(
+                          textStyle: TextStyle(
+                              fontWeight: FontWeight.w500, fontSize: 13)),
                     ),
                   ),
                   Container(
                     padding: EdgeInsets.all(3),
+                    margin: EdgeInsets.only(left: 5),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(50),
                       border: Border.all(
@@ -69,17 +72,19 @@ class _IndividualTask extends State<IndividualTask> {
                 children: <Widget>[
                   Text(
                     "Time",
-                    style: TextStyle(
-                        color: Color.fromARGB(255, 159, 159, 159),
-                        fontWeight: FontWeight.w300,
-                        fontSize: 12),
+                    style: GoogleFonts.poppins(
+                        textStyle: TextStyle(
+                            color: Color.fromARGB(255, 159, 159, 159),
+                            fontWeight: FontWeight.w300,
+                            fontSize: 12)),
                   ),
                   Text(
                     widget.EventData["Time"],
-                    style: TextStyle(
-                        color: Colors.black,
-                        fontWeight: FontWeight.w400,
-                        fontSize: 12),
+                    style: GoogleFonts.montserrat(
+                        textStyle: TextStyle(
+                            color: Colors.black,
+                            fontWeight: FontWeight.w400,
+                            fontSize: 12)),
                   ),
                 ],
               ),
@@ -88,7 +93,7 @@ class _IndividualTask extends State<IndividualTask> {
               ),
               Container(
                 margin: EdgeInsets.fromLTRB(0, 10, 0, 10),
-                padding: EdgeInsets.fromLTRB(10, 4, 10, 4),
+                padding: EdgeInsets.fromLTRB(5, 4, 5, 4),
                 height: 26,
                 width: 95,
                 decoration: BoxDecoration(
@@ -99,7 +104,7 @@ class _IndividualTask extends State<IndividualTask> {
                   ),
                 ),
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     Container(
                       width: 6,
@@ -110,8 +115,9 @@ class _IndividualTask extends State<IndividualTask> {
                     ),
                     Text(
                       "${widget.EventData["Priority"]} priority",
-                      style:
-                          TextStyle(fontSize: 11, fontWeight: FontWeight.w400),
+                      style: GoogleFonts.poppins(
+                          textStyle: TextStyle(
+                              fontSize: 11, fontWeight: FontWeight.w400)),
                     ),
                   ],
                 ),

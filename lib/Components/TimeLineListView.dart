@@ -14,7 +14,7 @@ class TimeLineListView extends StatefulWidget {
 }
 
 class _TimeLineListView extends State<TimeLineListView> {
-  String? OpenedTimeLine;
+  String? OpenedTimeLine = "1";
 
   void ClickedTimeLine(id) {
     setState(() {
@@ -99,13 +99,20 @@ class _TimeLineListView extends State<TimeLineListView> {
               if (widget.ProjectList[index]["id"] == OpenedTimeLine)
                 Container(
                   padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
-                  child: Row(
-                    children: [
-                      IndividualTask(
-                          EventData: widget.ProjectList[index]["Events"][0]),
-                      IndividualTask(
-                          EventData: widget.ProjectList[index]["Events"][1]),
-                    ],
+                  child: SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      children: [
+                        IndividualTask(
+                            EventData: widget.ProjectList[index]["Events"][0]),
+                        IndividualTask(
+                            EventData: widget.ProjectList[index]["Events"][1]),
+                        IndividualTask(
+                            EventData: widget.ProjectList[index]["Events"][1]),
+                        IndividualTask(
+                            EventData: widget.ProjectList[index]["Events"][1]),
+                      ],
+                    ),
                   ),
                 )
             ],

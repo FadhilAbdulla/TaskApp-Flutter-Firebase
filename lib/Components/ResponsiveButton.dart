@@ -20,7 +20,7 @@ class _ResponsiveButton extends State<ResponsiveButton> {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        widget.onButtonTap!();
+        widget.onButtonTap?.call();
       },
       child: Container(
         alignment: Alignment.center,

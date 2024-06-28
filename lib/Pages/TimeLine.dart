@@ -115,6 +115,7 @@ class _TimeLine extends State<TimeLine> {
           ProjectList: [
             items[0],
             items[2],
+            items[1],
           ],
         ),
       ),

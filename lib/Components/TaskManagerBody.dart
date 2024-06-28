@@ -164,8 +164,8 @@ class _TaskManagerBody extends State<TaskManagerBody> {
                             borderRadius: BorderRadius.circular(10),
                             // color: Color.fromARGB(255, 230, 230, 230)
                           ),
-                          height: 90,
-                          width: 90,
+                          height: 123,
+                          width: 123,
                           // child: Column(
                           //   mainAxisAlignment: MainAxisAlignment.center,
                           //   children: [

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class MultiLineTextArea extends StatefulWidget {
   const MultiLineTextArea(
@@ -19,27 +20,30 @@ class _MultiLineTextArea extends State<MultiLineTextArea> {
       children: [
         Text(
           widget.Title,
-          style: TextStyle(
-              fontSize: 14,
-              color: Color.fromARGB(255, 153, 153, 153),
-              fontWeight: FontWeight.w600),
+          style: GoogleFonts.montserrat(
+              textStyle: TextStyle(
+                  fontSize: 14,
+                  color: Color.fromRGBO(153, 153, 153, 1),
+                  fontWeight: FontWeight.w600)),
         ),
         Container(
           margin: EdgeInsets.fromLTRB(0, 5, 0, 0),
           child: TextField(
             maxLines: 3,
             // controller: myController,
-            style: TextStyle(
-                fontSize: 12,
-                fontWeight: FontWeight.w400,
-                fontFamily: 'Poppins'), // Set font size here
+            style: GoogleFonts.poppins(
+                textStyle: TextStyle(
+                    fontSize: 12,
+                    fontWeight: FontWeight.w400,
+                    color: Color.fromRGBO(
+                        153, 153, 153, 1))), // Set font size here
 
             decoration: InputDecoration(
                 hintText: widget.HintText,
                 enabledBorder: OutlineInputBorder(
                   borderSide: BorderSide(
-                    color: Color.fromARGB(255, 153, 153, 153),
-                    width: 1.0,
+                    color: Color.fromRGBO(153, 153, 153, 1),
+                    width: 0.5,
                   ),
                   borderRadius: BorderRadius.circular(10.0),
                 ),

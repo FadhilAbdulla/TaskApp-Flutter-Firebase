@@ -96,7 +96,8 @@ class _HomePageState extends State<HomePage>
         appBar: AppBar(
           automaticallyImplyLeading: false,
           backgroundColor: Colors.white,
-          title: GreetingHeadBar(UserName: "fadhil"),
+          title: GreetingHeadBar(
+              UserName: "fadhil", Active: true, NotificationActive: true),
           bottom: PreferredSize(
             preferredSize: Size.fromHeight(_tabController?.index == 1
                 ? 100.0

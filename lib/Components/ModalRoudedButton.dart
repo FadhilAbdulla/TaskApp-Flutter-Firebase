@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class ModalRoudedButton extends StatefulWidget {
   const ModalRoudedButton(
@@ -18,7 +19,7 @@ class _ModalRoudedButton extends State<ModalRoudedButton> {
       alignment: Alignment.center,
       height: 33,
       padding: EdgeInsets.fromLTRB(15, 2, 15, 2),
-      margin: EdgeInsets.only(right: 20),
+      margin: EdgeInsets.only(right: 10),
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(30),
           color: widget.blackButton ? Colors.black : Colors.white,
@@ -28,12 +29,13 @@ class _ModalRoudedButton extends State<ModalRoudedButton> {
         builder: (context, constraints) {
           return Text(
             widget.textinside,
-            style: TextStyle(
-                fontSize: 14.0,
-                fontWeight: FontWeight.w600,
-                color: widget.blackButton
-                    ? Colors.white
-                    : Colors.black), // Adjust font size as needed
+            style: GoogleFonts.montserrat(
+                textStyle: TextStyle(
+                    fontSize: 14.0,
+                    fontWeight: FontWeight.w600,
+                    color: widget.blackButton
+                        ? Colors.white
+                        : Colors.black)), // Adjust font size as needed
             textAlign: TextAlign.center, // Adjust text alignment as needed
             maxLines: 1, // Ensure text does not wrap
             overflow:

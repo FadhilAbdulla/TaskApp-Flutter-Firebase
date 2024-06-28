@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class CustomDropDown extends StatefulWidget {
   const CustomDropDown(
@@ -19,20 +20,22 @@ class _CustomDropDown extends State<CustomDropDown> {
       children: [
         Text(
           widget.Title,
-          style: TextStyle(
-              fontSize: 14,
-              color: Color.fromARGB(255, 153, 153, 153),
-              fontWeight: FontWeight.w600),
+          style: GoogleFonts.montserrat(
+              textStyle: TextStyle(
+                  fontSize: 14,
+                  color: Color.fromRGBO(153, 153, 153, 1),
+                  fontWeight: FontWeight.w600)),
         ),
         SizedBox(
           height: 5,
         ),
         Container(
           width: double.infinity, // Full width
-          height: 38, // Set height
+          height: 37, // Set height
           padding: EdgeInsets.symmetric(horizontal: 10),
           decoration: BoxDecoration(
-            border: Border.all(color: Color.fromARGB(255, 153, 153, 153)),
+            border: Border.all(
+                color: Color.fromARGB(255, 153, 153, 153), width: 0.5),
             borderRadius: BorderRadius.circular(8),
           ),
           child: DropdownButton<String>(

@@ -5,6 +5,7 @@ import 'Counter.dart';
 import 'Normalbutton.dart';
 import 'CalenderView.dart';
 import 'ModalRoudedButton.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class NewTaskModal extends StatefulWidget {
   const NewTaskModal({super.key});
@@ -32,10 +33,10 @@ class _NewTaskModal extends State<NewTaskModal> {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-          color: Colors.white, borderRadius: BorderRadius.circular(20)),
+          color: Colors.white, borderRadius: BorderRadius.circular(8)),
       width: MediaQuery.of(context).size.width,
-      height: MediaQuery.of(context).size.height * .90,
-      padding: EdgeInsets.all(20),
+      height: MediaQuery.of(context).size.height * .922,
+      padding: EdgeInsets.fromLTRB(20, 25, 20, 20),
       child: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -44,30 +45,32 @@ class _NewTaskModal extends State<NewTaskModal> {
               onTap: () => Navigator.pop(context),
               child: Container(
                 margin: EdgeInsets.only(bottom: 10),
+                padding: EdgeInsets.all(2),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(50),
                   color: Colors.white,
                   border: Border.all(
                     color: Colors.black,
-                    width: 1.5,
+                    width: 1.8,
                   ),
                 ),
                 child: Icon(
                   Icons.close,
                   color: Colors.black,
-                  size: 20,
+                  size: 18,
                 ),
               ),
             ),
             SizedBox(
-              height: 8,
+              height: 7,
             ),
-            const Text(
-              'New Task',
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700),
-            ),
+            Text('New Task',
+                style: GoogleFonts.montserrat(
+                  textStyle:
+                      TextStyle(fontSize: 16, fontWeight: FontWeight.w700),
+                )),
             SizedBox(
-              height: 10,
+              height: 16,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -85,26 +88,30 @@ class _NewTaskModal extends State<NewTaskModal> {
                     onTap: () {
                       ChangeCalenderVisibility();
                     },
-                    child: Icon(Icons.calendar_month_outlined))
+                    child: Image.asset(
+                      "assets/Images/Icons/Calender.png",
+                      width: 23,
+                      height: 23,
+                    ))
               ],
             ),
             _ShowCalender
                 ? CalenderView()
                 : SizedBox(
-                    height: 20,
+                    height: 15,
                   ),
             CustomDropDown(ListItem: ProjectList, Title: "Project"),
             SizedBox(
-              height: 10,
+              height: 15,
             ),
             CustomDropDown(ListItem: TaskList, Title: "Task"),
             SizedBox(
-              height: 10,
+              height: 14,
             ),
             MultiLineTextArea(
                 Title: "Task Description", HintText: "Add Description..."),
             SizedBox(
-              height: 15,
+              height: 13,
             ),
             Counter(Title: "Select hours"),
             SizedBox(
@@ -112,7 +119,7 @@ class _NewTaskModal extends State<NewTaskModal> {
             ),
             Counter(Title: "Task Points"),
             SizedBox(
-              height: 15,
+              height: 75,
             ),
             Center(
               child: Normalbutton(

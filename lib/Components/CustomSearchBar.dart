@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class CustomSearchBar extends StatefulWidget {
   const CustomSearchBar({super.key});
@@ -18,10 +19,11 @@ class _CustomSearchBar extends State<CustomSearchBar> {
         child: SearchBar(
           hintText: 'Search your task',
           hintStyle: WidgetStateProperty.all(
-            TextStyle(
-                color: Color.fromARGB(255, 87, 87, 87),
-                // fontStyle: FontStyle.italic,
-                fontWeight: FontWeight.w400),
+            GoogleFonts.montserrat(
+                textStyle: TextStyle(
+                    color: Color.fromARGB(255, 87, 87, 87),
+                    // fontStyle: FontStyle.italic,
+                    fontWeight: FontWeight.w400)),
           ),
           controller: myController,
           textStyle: WidgetStateProperty.all(
@@ -31,11 +33,15 @@ class _CustomSearchBar extends State<CustomSearchBar> {
                 fontWeight: FontWeight.w400),
           ),
           leading: Container(
-            child: Icon(Icons.search, color: Color.fromARGB(255, 87, 87, 87)),
+            child: Image.asset(
+              "assets/Images/Icons/SearchIcon.png",
+              width: 18,
+              height: 18,
+            ),
             padding: EdgeInsets.only(left: 10),
           ),
           backgroundColor:
-              WidgetStateProperty.all(Color.fromARGB(255, 248, 248, 248)),
+              WidgetStateProperty.all(Color.fromRGBO(248, 248, 248, 1)),
           elevation: WidgetStateProperty.all(0),
           shape: WidgetStateProperty.all(
             RoundedRectangleBorder(

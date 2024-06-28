@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import '../Components//ResponsiveButton.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class Profile extends StatefulWidget {
   const Profile({super.key, required this.UserName, required this.UserEmail});
@@ -73,7 +74,7 @@ class _Profile extends State<Profile> {
                       style: TextStyle(
                           fontWeight: FontWeight.w400,
                           color: Color.fromARGB(255, 55, 55, 55),
-                          fontSize: 18)),
+                          fontSize: 16)),
                   const SizedBox(height: 20),
                   Container(
                     padding: EdgeInsets.only(left: 20),
@@ -91,6 +92,9 @@ class _Profile extends State<Profile> {
                     child: ResponsiveButton(
                       blackButton: false,
                       textinside: "No",
+                      onButtonTap: () {
+                        Navigator.pop(context);
+                      },
                     ),
                   ),
                 ],
@@ -143,21 +147,26 @@ class _Profile extends State<Profile> {
             ),
             child: Column(
               children: <Widget>[
-                Row(
-                  children: <Widget>[
-                    Icon(
-                      Icons.notifications_outlined,
-                      size: 30.0,
-                    ),
-                    SizedBox(width: 10),
-                    Text(
-                      "Notifications",
-                      style: TextStyle(
-                          fontWeight: FontWeight.w500,
-                          fontSize: 13,
-                          color: Color.fromARGB(255, 87, 87, 87)),
-                    )
-                  ],
+                InkWell(
+                  onTap: () {
+                    Navigator.of(context).pushReplacementNamed('/notification');
+                  },
+                  child: Row(
+                    children: <Widget>[
+                      Icon(
+                        Icons.notifications_outlined,
+                        size: 30.0,
+                      ),
+                      SizedBox(width: 10),
+                      Text(
+                        "Notifications",
+                        style: TextStyle(
+                            fontWeight: FontWeight.w500,
+                            fontSize: 13,
+                            color: Color.fromARGB(255, 87, 87, 87)),
+                      )
+                    ],
+                  ),
                 ),
                 Divider(
                   color: const Color.fromARGB(255, 224, 224, 224),

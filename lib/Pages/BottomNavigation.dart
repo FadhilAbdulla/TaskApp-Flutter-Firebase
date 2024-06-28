@@ -53,16 +53,18 @@ class _BottomNavigationState extends State<BottomNavigation> {
       bottomNavigationBar: BottomNavigationBar(
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(
-              Icons.other_houses_outlined,
-              size: 24,
+            icon: Image.asset(
+              "assets/Images/Icons/${_selectedIndex == 0 ? "1S" : "1"}.png",
+              width: 22,
+              height: 22,
             ),
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(
-              Icons.folder_outlined,
-              size: 24,
+            icon: Image.asset(
+              "assets/Images/Icons/${_selectedIndex == 1 ? "2S" : "2"}.png",
+              width: 22,
+              height: 22,
             ),
             label: 'Projects',
           ),
@@ -85,16 +87,18 @@ class _BottomNavigationState extends State<BottomNavigation> {
             label: '', // Empty label for the add icon
           ),
           BottomNavigationBarItem(
-            icon: Icon(
-              Icons.calendar_month,
-              size: 24,
+            icon: Image.asset(
+              "assets/Images/Icons/${_selectedIndex == 3 ? "3S" : "3"}.png",
+              width: 22,
+              height: 22,
             ),
             label: 'Time Line',
           ),
           BottomNavigationBarItem(
-            icon: Icon(
-              Icons.account_circle_outlined,
-              size: 24,
+            icon: Image.asset(
+              "assets/Images/Icons/${_selectedIndex == 4 ? "4S" : "4"}.png",
+              width: 22,
+              height: 22,
             ),
             label: 'Account',
           ),
