@@ -21,7 +21,10 @@ class _TaskListView extends State<TaskListView> {
       itemBuilder: (context, index) {
         return InkWell(
           onTap: () {
-            Navigator.of(context).pushReplacementNamed('/managetask');
+            Navigator.of(context).pushReplacementNamed(
+              '/managetask',
+              arguments: widget.TaskList[index],
+            );
           },
           child: Container(
             margin: EdgeInsets.symmetric(vertical: 8.0, horizontal: 20.0),
@@ -154,7 +157,7 @@ class _TaskListView extends State<TaskListView> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: <Widget>[
                               Text(
-                                widget.TaskList[index]["Date"],
+                                widget.TaskList[index]["CompletedDate"],
                                 style: GoogleFonts.montserrat(
                                     textStyle: TextStyle(
                                         color: Color.fromARGB(255, 87, 87, 87),

@@ -19,55 +19,50 @@ class _HomePageState extends State<HomePage>
       "Category": "Ui Ux Design",
       "Name": "Disk Task Management App",
       "Description": "Redesign fashion app for up dribble",
-      "Date": "Today 10:00AM",
-      "Duration": "5",
-      "Status": "Completed"
-    },
-    {
-      "Category": "Mobile Developing",
-      "Name": "Ios Mobile Application",
-      "Description": "sample Redesign fashion app for up dribble",
-      "Date": "Today 5:00AM",
-      "Duration": "4",
-      "Status": "InProgress"
-    },
-    {
-      "Category": "Web developing",
-      "Name": "Web Application deployment",
-      "Description": "Redesign fashion app for up dribble",
+      "CompletedDate": "Apr 20-2024 , 10:00 am",
+      "Points": "5",
       "Date": "Today 9:00AM",
       "Duration": "4.5",
-      "Status": "ToDo"
-    },
-  ];
-  final List<Map> Pastitems = [
-    {
-      "Category": "Ui Ux Design",
-      "Name": "Disk Task Management App",
-      "Description": "Redesign fashion app for up dribble",
-      "Date": "Apr 20-2024 , 10:00 am",
-      "Points": "5",
-      "Duration": "5",
-      "Status": "Completed"
+      "Status": "ToDo",
+      "PrimeDescription":
+          "Design Task management App Design Task management AppDesign Task management AppDesign Task management AppDesign Task management AppDesign Task management",
+      "StartDate": "4Apr2024",
+      "StartTime": "04:45Pm",
+      "Hours": "10",
+      "Approved": "Ali"
     },
     {
       "Category": "Mobile Developing",
       "Name": "Ios Mobile Application",
       "Description": "sample Redesign fashion app for up dribble",
-      "Date": "Apr 20-2024 , 10:00 am",
-      "Duration": "4",
+      "CompletedDate": "Apr 20-2024 , 10:00 am",
       "Points": "5",
-      "Status": "InProgress"
+      "Date": "Today 5:00AM",
+      "Duration": "4",
+      "Status": "InProgress",
+      "PrimeDescription":
+          "Design Task management App Design Task management AppDesign Task management AppDesign Task management AppDesign Task management AppDesign Task management",
+      "StartDate": "4Apr2024",
+      "StartTime": "04:45Pm",
+      "Hours": "10",
+      "Approved": "Ali"
     },
     {
       "Category": "Web developing",
       "Name": "Web Application deployment",
-      "Description": "Redesign fashion app for up dribble",
-      "Date": "Apr 20-2024 , 10:00 am",
-      "Duration": "4.5",
-      "Points": "5",
-      "Status": "ToDo"
-    },
+      "Description": "sample Redesign fashion app for up dribble",
+      "CompletedDate": "Apr 20-2024 , 10:00 am",
+      "Points": "5.5",
+      "Date": "Today 9:00AM",
+      "Duration": "4",
+      "Status": "Completed",
+      "PrimeDescription":
+          "Design Task management App Design Task management AppDesign Task management AppDesign Task management AppDesign Task management AppDesign Task management",
+      "StartDate": "4Apr2024",
+      "StartTime": "04:45Pm",
+      "Hours": "10",
+      "Approved": "Ali"
+    }
   ];
 
   TabController? _tabController;
@@ -173,7 +168,7 @@ class _HomePageState extends State<HomePage>
             ),
             Center(
               child: TaskListView(
-                TaskList: [Pastitems[0], Pastitems[1]],
+                TaskList: [Todayitems[0], Todayitems[1]],
                 IsToday: false,
               ),
             )

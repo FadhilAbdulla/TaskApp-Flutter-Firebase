@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "320320965147",
+    "project_id": "mvp-timesheet",
+    "storage_bucket": "mvp-timesheet.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:320320965147:android:6b788bd8d935dbf21a06be",
+        "android_client_info": {
+          "package_name": "com.example.firebase_test"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDhR5SpIk6oW1g3I24TfzE7zzDAEF2EpRs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:320320965147:android:94a412977d6fc35a1a06be",
+        "android_client_info": {
+          "package_name": "com.example.test_drive"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDhR5SpIk6oW1g3I24TfzE7zzDAEF2EpRs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

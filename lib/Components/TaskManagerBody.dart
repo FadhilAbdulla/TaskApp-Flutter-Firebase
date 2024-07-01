@@ -6,7 +6,7 @@ class TaskManagerBody extends StatefulWidget {
     required this.TaskDetails,
   });
 
-  final Map TaskDetails;
+  final Map? TaskDetails;
   @override
   State<TaskManagerBody> createState() => _TaskManagerBody();
 }
@@ -24,7 +24,7 @@ class _TaskManagerBody extends State<TaskManagerBody> {
           height: 5,
         ),
         Text(
-          widget.TaskDetails["ProjectName"],
+          widget.TaskDetails!["Name"],
           style: TextStyle(fontWeight: FontWeight.w600, fontSize: 23),
         ),
         SizedBox(
@@ -42,7 +42,7 @@ class _TaskManagerBody extends State<TaskManagerBody> {
           height: 5,
         ),
         Text(
-          widget.TaskDetails["TaskDetails"],
+          widget.TaskDetails!["Description"],
           style: TextStyle(fontWeight: FontWeight.w500, fontSize: 17),
         ),
         SizedBox(
@@ -60,7 +60,7 @@ class _TaskManagerBody extends State<TaskManagerBody> {
           height: 5,
         ),
         Text(
-          widget.TaskDetails["Description"],
+          widget.TaskDetails!["PrimeDescription"],
           style: TextStyle(fontWeight: FontWeight.w500, fontSize: 15),
         ),
         SizedBox(
@@ -72,7 +72,7 @@ class _TaskManagerBody extends State<TaskManagerBody> {
         SizedBox(
           height: 5,
         ),
-        widget.TaskDetails["Status"] == "Completed"
+        widget.TaskDetails!["Status"] == "Completed"
             ? Container(
                 child: Column(
                   children: [
@@ -91,7 +91,7 @@ class _TaskManagerBody extends State<TaskManagerBody> {
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Text(widget.TaskDetails["Points"],
+                              Text(widget.TaskDetails!["Points"],
                                   style: TextStyle(
                                       fontWeight: FontWeight.w600,
                                       fontSize: 18)),
@@ -114,7 +114,7 @@ class _TaskManagerBody extends State<TaskManagerBody> {
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Text(widget.TaskDetails["Hours"],
+                              Text(widget.TaskDetails!["Hours"],
                                   style: TextStyle(
                                       fontWeight: FontWeight.w600,
                                       fontSize: 18)),
@@ -152,7 +152,7 @@ class _TaskManagerBody extends State<TaskManagerBody> {
                               SizedBox(
                                 height: 5,
                               ),
-                              Text(widget.TaskDetails["Approved"],
+                              Text(widget.TaskDetails!["Approved"],
                                   style: TextStyle(
                                       fontWeight: FontWeight.w400,
                                       fontSize: 14)),
@@ -202,7 +202,7 @@ class _TaskManagerBody extends State<TaskManagerBody> {
                             SizedBox(
                               height: 5,
                             ),
-                            Text(widget.TaskDetails["StartDate"],
+                            Text(widget.TaskDetails!["StartDate"],
                                 style: TextStyle(
                                     fontWeight: FontWeight.w500, fontSize: 15)),
                           ],
@@ -216,7 +216,7 @@ class _TaskManagerBody extends State<TaskManagerBody> {
                           SizedBox(
                             height: 5,
                           ),
-                          Text(widget.TaskDetails["StartTime"],
+                          Text(widget.TaskDetails!["StartTime"],
                               style: TextStyle(
                                   fontWeight: FontWeight.w500, fontSize: 15)),
                         ],

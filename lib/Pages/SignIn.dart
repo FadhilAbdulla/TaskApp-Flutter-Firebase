@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../Components/TextAreaSimple.dart';
 import '../Components/NormalButton.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../Functions/ApiFunctions.dart';
 
 class SignIn extends StatefulWidget {
   const SignIn({super.key});
@@ -10,10 +11,19 @@ class SignIn extends StatefulWidget {
 }
 
 class _SignInState extends State<SignIn> {
-  final myController = TextEditingController();
+  final UserNameController = TextEditingController();
+  final UserPasswordController = TextEditingController();
 
-  void Login() {
-    Navigator.of(context).pushReplacementNamed('/');
+  void Login() async {
+    final data = await signInUser(
+        userEmail: UserNameController.text,
+        userPassword: UserPasswordController.text);
+    if (data["status"] == "200") {
+      Navigator.of(context).pushReplacementNamed('/');
+      SnackBar(content: Text('no login'));
+    } else {
+      SnackBar(content: Text('no login'));
+    }
   }
 
   @override
@@ -49,8 +59,14 @@ class _SignInState extends State<SignIn> {
                           TextStyle(fontSize: 12, fontWeight: FontWeight.w400),
                     ),
                   ),
-                  TextAreaSimple(placeholder: 'Email address'),
-                  TextAreaSimple(placeholder: 'Password'),
+                  TextAreaSimple(
+                    placeholder: 'Email address',
+                    textController: UserNameController,
+                  ),
+                  TextAreaSimple(
+                    placeholder: 'Password',
+                    textController: UserPasswordController,
+                  ),
                   Normalbutton(textinside: 'Login', ButtonPressed: Login),
                 ],
               ),

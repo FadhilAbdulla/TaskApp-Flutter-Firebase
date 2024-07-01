@@ -2,24 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class TextAreaSimple extends StatefulWidget {
-  const TextAreaSimple({super.key, required this.placeholder});
+  const TextAreaSimple(
+      {super.key, required this.placeholder, required this.textController});
 
   final String placeholder;
-
+  final TextEditingController textController;
   @override
   State<TextAreaSimple> createState() => _TextAreaSimple();
 }
 
 class _TextAreaSimple extends State<TextAreaSimple> {
-  final myController = TextEditingController();
   final placeholder = "sample text";
-
-  @override
-  void dispose() {
-    // Clean up the controller when the widget is disposed.
-    myController.dispose();
-    super.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +23,7 @@ class _TextAreaSimple extends State<TextAreaSimple> {
       margin: EdgeInsets.fromLTRB(0, 20, 0, 5),
       // padding: EdgeInsets.fromLTRB(5, 5, 5, bottom),
       child: TextField(
-        controller: myController,
+        controller: widget.textController,
         style: GoogleFonts.montserrat(
             textStyle: TextStyle(
                 color: Colors.black,

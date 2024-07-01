@@ -4,8 +4,15 @@ import 'Pages/TaskManager.dart';
 import 'Pages/SignIn.dart';
 import 'Pages/NotificationPage.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_auth/firebase_auth.dart' as firebase_auth;
+import 'package:cloud_firestore/cloud_firestore.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  FirebaseFirestore.instance.settings =
+      const Settings(persistenceEnabled: true);
   runApp(const MyApp());
 }
 
