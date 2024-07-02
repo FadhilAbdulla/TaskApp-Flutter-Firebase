@@ -3,16 +3,36 @@ import 'package:google_fonts/google_fonts.dart';
 
 class CustomDropDown extends StatefulWidget {
   const CustomDropDown(
-      {super.key, required this.ListItem, required this.Title});
+      {super.key,
+      required this.ListItem,
+      required this.Title,
+      required this.onSelectionChanged,
+      this.defaultValue});
 
   final List<String> ListItem;
   final String Title;
+  final void Function(String?) onSelectionChanged;
+  final String? defaultValue;
+
   @override
   State<CustomDropDown> createState() => _CustomDropDown();
 }
 
 class _CustomDropDown extends State<CustomDropDown> {
   String? _selectedProject;
+
+  @override
+  void initState() {
+    super.initState();
+    if (widget.defaultValue != null &&
+        widget.defaultValue!.isNotEmpty &&
+        widget.ListItem.contains(widget.defaultValue)) {
+      setState(() {
+        _selectedProject = widget.defaultValue;
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -48,6 +68,7 @@ class _CustomDropDown extends State<CustomDropDown> {
             onChanged: (String? newProject) {
               setState(() {
                 _selectedProject = newProject;
+                widget.onSelectionChanged(newProject);
               });
             },
             items: widget.ListItem.map((String project) {

@@ -3,7 +3,10 @@ import 'package:flutter/material.dart';
 class CalenderView extends StatefulWidget {
   const CalenderView({
     super.key,
+    required this.onCalenderdateChange,
   });
+
+  final void Function(DateTime?) onCalenderdateChange;
 
   @override
   State<CalenderView> createState() => _CalenderView();
@@ -49,6 +52,7 @@ class _CalenderView extends State<CalenderView> {
             onDateChanged: (DateTime newDate) {
               setState(() {
                 _selectedDate = newDate;
+                widget.onCalenderdateChange(newDate);
               });
             },
           ),

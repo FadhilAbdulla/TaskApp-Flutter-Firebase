@@ -3,10 +3,14 @@ import 'package:google_fonts/google_fonts.dart';
 
 class MultiLineTextArea extends StatefulWidget {
   const MultiLineTextArea(
-      {super.key, required this.HintText, required this.Title});
+      {super.key,
+      required this.HintText,
+      required this.Title,
+      required this.TextContoller});
 
   final String HintText;
   final String Title;
+  final TextEditingController TextContoller;
   @override
   State<MultiLineTextArea> createState() => _MultiLineTextArea();
 }
@@ -30,7 +34,7 @@ class _MultiLineTextArea extends State<MultiLineTextArea> {
           margin: EdgeInsets.fromLTRB(0, 5, 0, 0),
           child: TextField(
             maxLines: 3,
-            // controller: myController,
+            controller: widget.TextContoller,
             style: GoogleFonts.poppins(
                 textStyle: TextStyle(
                     fontSize: 12,

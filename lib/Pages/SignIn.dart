@@ -13,67 +13,83 @@ class SignIn extends StatefulWidget {
 class _SignInState extends State<SignIn> {
   final UserNameController = TextEditingController();
   final UserPasswordController = TextEditingController();
+  bool isLoading = false;
 
   void Login() async {
+    setState(() {
+      isLoading = true;
+    });
     final data = await signInUser(
         userEmail: UserNameController.text,
         userPassword: UserPasswordController.text);
     if (data["status"] == "200") {
       Navigator.of(context).pushReplacementNamed('/');
-      SnackBar(content: Text('no login'));
+      SnackBar(content: Text('Welcome back'));
     } else {
-      SnackBar(content: Text('no login'));
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Credentials are Wrong')),
+      );
     }
+    setState(() {
+      isLoading = false;
+    });
+    // Navigator.of(context).pushReplacementNamed('/');
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        margin: EdgeInsets.all(40),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Center(
-              child: Container(
-                  height: 87,
-                  width: 172,
-                  margin: EdgeInsets.only(bottom: 120),
-                  child: Image.asset('assets/Images/image.png')),
-            ),
-            Center(
+      body: isLoading
+          ? Center(
+              child: CircularProgressIndicator(
+              backgroundColor: const Color.fromARGB(255, 126, 126, 126),
+              color: Color.fromARGB(194, 227, 227, 227),
+            ))
+          : Container(
+              margin: EdgeInsets.all(40),
               child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'Welcome back',
-                    style: GoogleFonts.montserrat(
-                        textStyle: TextStyle(
-                            fontWeight: FontWeight.w700, fontSize: 16)),
+                children: <Widget>[
+                  Center(
+                    child: Container(
+                        height: 87,
+                        width: 172,
+                        margin: EdgeInsets.only(bottom: 120),
+                        child: Image.asset('assets/Images/image.png')),
                   ),
-                  Text(
-                    'Please Enter your email and password to login',
-                    style: GoogleFonts.montserrat(
-                      textStyle:
-                          TextStyle(fontSize: 12, fontWeight: FontWeight.w400),
+                  Center(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Welcome back',
+                          style: GoogleFonts.montserrat(
+                              textStyle: TextStyle(
+                                  fontWeight: FontWeight.w700, fontSize: 16)),
+                        ),
+                        Text(
+                          'Please Enter your email and password to login',
+                          style: GoogleFonts.montserrat(
+                            textStyle: TextStyle(
+                                fontSize: 12, fontWeight: FontWeight.w400),
+                          ),
+                        ),
+                        TextAreaSimple(
+                          placeholder: 'Email address',
+                          textController: UserNameController,
+                        ),
+                        TextAreaSimple(
+                          placeholder: 'Password',
+                          textController: UserPasswordController,
+                        ),
+                        Normalbutton(textinside: 'Login', ButtonPressed: Login),
+                      ],
                     ),
                   ),
-                  TextAreaSimple(
-                    placeholder: 'Email address',
-                    textController: UserNameController,
-                  ),
-                  TextAreaSimple(
-                    placeholder: 'Password',
-                    textController: UserPasswordController,
-                  ),
-                  Normalbutton(textinside: 'Login', ButtonPressed: Login),
                 ],
               ),
             ),
-          ],
-        ),
-      ),
     );
   }
 }

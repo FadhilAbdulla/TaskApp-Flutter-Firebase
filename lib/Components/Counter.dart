@@ -2,9 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class Counter extends StatefulWidget {
-  const Counter({super.key, required this.Title});
+  const Counter(
+      {super.key,
+      required this.Title,
+      required this.DataChange,
+      this.defaultValue});
 
   final String Title;
+  final void Function(String?) DataChange;
+  final String? defaultValue;
   @override
   State<Counter> createState() => _Counter();
 }
@@ -12,13 +18,25 @@ class Counter extends StatefulWidget {
 class _Counter extends State<Counter> {
   int? _counter = 0;
 
+  @override
+  void initState() {
+    super.initState();
+    if (widget.defaultValue != null && widget.defaultValue!.isNotEmpty) {
+      setState(() {
+        _counter = int.parse(widget.defaultValue ?? "0");
+      });
+    }
+  }
+
   IncrementCount(int? count) {
+    widget.DataChange((_counter! + count!).toString());
     setState(() {
       _counter = _counter! + count!;
     });
   }
 
   DecrementCount(int? count) {
+    widget.DataChange((_counter! - count!).toString());
     setState(() {
       _counter = _counter! - count!;
     });

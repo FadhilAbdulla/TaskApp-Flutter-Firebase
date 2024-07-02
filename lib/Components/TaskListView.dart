@@ -141,7 +141,7 @@ class _TaskListView extends State<TaskListView> {
                                         fontWeight: FontWeight.w500)),
                               ),
                               Text(
-                                "${widget.TaskList[index]["Duration"]} Hours",
+                                "${widget.TaskList[index]["Hours"]} Hours",
                                 style: GoogleFonts.montserrat(
                                     textStyle: TextStyle(
                                         color: Color.fromARGB(255, 87, 87, 87),
@@ -173,7 +173,7 @@ class _TaskListView extends State<TaskListView> {
                                         fontWeight: FontWeight.w500)),
                               ),
                               Text(
-                                "${widget.TaskList[index]["Duration"]} Hours",
+                                "${widget.TaskList[index]["Hours"]} Hours",
                                 style: GoogleFonts.montserrat(
                                     textStyle: TextStyle(
                                         color: Color.fromARGB(255, 87, 87, 87),

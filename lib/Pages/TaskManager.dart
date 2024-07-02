@@ -13,30 +13,14 @@ class TaskManager extends StatefulWidget {
 }
 
 class _TaskManager extends State<TaskManager> {
-  // final Map items = {
-  //   "Category": "Web developing",
-  //   "Name": "Web Application deployment",
-  //   "Description": "sample Redesign fashion app for up dribble",
-  //   "CompletedDate": "Apr 20-2024 , 10:00 am",
-  //   "Points": "5.5",
-  //   "Date": "Today 9:00AM",
-  //   "Duration": "4",
-  //   "Status": "ToDo",
-  //   "ProjectName": "Mvp Task manager",
-  //   "PrimeDescription":
-  //       "Design Task management App Design Task management AppDesign Task management AppDesign Task management AppDesign Task management AppDesign Task management",
-  //   "StartDate": "4Apr2024",
-  //   "StartTime": "04:45Pm",
-  //   "Hours": "10",
-  //   "Approved": "Ali"
-  // };
-
-  OpenDialogueBox() {
+  OpenDialogueBox(Map? items) {
     showModalBottomSheet<void>(
       context: context,
       // isScrollControlled: true,
       builder: (BuildContext context) {
-        return TaskDetailsModal();
+        return TaskDetailsModal(
+          taskDetails: items,
+        );
       },
     );
   }
@@ -52,7 +36,9 @@ class _TaskManager extends State<TaskManager> {
           BackButtonPresent: true,
           SettingsButtonPresent: true,
           header: "",
-          onSettingsTap: OpenDialogueBox,
+          onSettingsTap: () {
+            OpenDialogueBox(items);
+          },
         ),
       ),
       body: Container(

@@ -35,7 +35,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
         context: context,
         isScrollControlled: true,
         builder: (BuildContext context) {
-          return NewTaskModal();
+          return NewTaskModal(EditView: false);
         },
       );
     }

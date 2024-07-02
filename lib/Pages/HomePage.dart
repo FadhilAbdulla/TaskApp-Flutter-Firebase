@@ -3,6 +3,7 @@ import '../Components/GreetingHeadBar.dart';
 import '../Components/TaskListView.dart';
 import '../Components/CustomSearchBar.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../Functions/ApiFunctions.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -14,67 +15,88 @@ class _HomePageState extends State<HomePage>
     with SingleTickerProviderStateMixin {
   final myController = TextEditingController();
 
-  final List<Map> Todayitems = [
-    {
-      "Category": "Ui Ux Design",
-      "Name": "Disk Task Management App",
-      "Description": "Redesign fashion app for up dribble",
-      "CompletedDate": "Apr 20-2024 , 10:00 am",
-      "Points": "5",
-      "Date": "Today 9:00AM",
-      "Duration": "4.5",
-      "Status": "ToDo",
-      "PrimeDescription":
-          "Design Task management App Design Task management AppDesign Task management AppDesign Task management AppDesign Task management AppDesign Task management",
-      "StartDate": "4Apr2024",
-      "StartTime": "04:45Pm",
-      "Hours": "10",
-      "Approved": "Ali"
-    },
-    {
-      "Category": "Mobile Developing",
-      "Name": "Ios Mobile Application",
-      "Description": "sample Redesign fashion app for up dribble",
-      "CompletedDate": "Apr 20-2024 , 10:00 am",
-      "Points": "5",
-      "Date": "Today 5:00AM",
-      "Duration": "4",
-      "Status": "InProgress",
-      "PrimeDescription":
-          "Design Task management App Design Task management AppDesign Task management AppDesign Task management AppDesign Task management AppDesign Task management",
-      "StartDate": "4Apr2024",
-      "StartTime": "04:45Pm",
-      "Hours": "10",
-      "Approved": "Ali"
-    },
-    {
-      "Category": "Web developing",
-      "Name": "Web Application deployment",
-      "Description": "sample Redesign fashion app for up dribble",
-      "CompletedDate": "Apr 20-2024 , 10:00 am",
-      "Points": "5.5",
-      "Date": "Today 9:00AM",
-      "Duration": "4",
-      "Status": "Completed",
-      "PrimeDescription":
-          "Design Task management App Design Task management AppDesign Task management AppDesign Task management AppDesign Task management AppDesign Task management",
-      "StartDate": "4Apr2024",
-      "StartTime": "04:45Pm",
-      "Hours": "10",
-      "Approved": "Ali"
-    }
-  ];
+  List<Map> TodayItems = [];
+  List<Map> PastItems = [];
+  bool isLoading = true;
 
   TabController? _tabController;
 
   @override
   void initState() {
     super.initState();
+    fetchTasks();
     _tabController = TabController(length: 2, vsync: this);
     _tabController?.addListener(() {
       setState(() {});
     });
   }
+
+  void fetchTasks() async {
+    setState(() {
+      isLoading = true;
+    });
+    Map<String, dynamic> fetchedTasks = await getAllTasks();
+    if (fetchedTasks["status"] == "200") {
+      setState(() {
+        TodayItems = fetchedTasks["todayTasks"];
+        PastItems = fetchedTasks["pastTasks"];
+      });
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Something Went Wrong')),
+      );
+    }
+    setState(() {
+      isLoading = false;
+    });
+  }
+  // Future<void> fetchTasks() async {
+  //   print("sample");
+  //   final SharedPreferences prefs = await SharedPreferences.getInstance();
+  //   Map<String, dynamic>? storedTasks;
+
+  //   // Try to fetch stored tasks from SharedPreferences
+  //   String? storedTasksJson = await prefs.getString('storedTasks');
+  //   if (storedTasksJson != null &&
+  //       storedTasksJson.isNotEmpty &&
+  //       storedTasksJson != "") {
+  //     storedTasks = jsonDecode(storedTasksJson);
+  //     print(storedTasksJson);
+  //     print("something");
+  //     setState(() {
+  //       TodayItems = storedTasks!["todayTasks"];
+  //       PastItems = storedTasks!["pastTasks"];
+  //     });
+  //   } else {
+  //     print("sample");
+  //   }
+
+  //   // Fetch new tasks from Firestore
+  //   Map<String, dynamic> fetchedTasks = await getAllTasks();
+
+  //   if (fetchedTasks["status"] == "200") {
+  //     print("Fetch success");
+  //     // Store fetched tasks in SharedPreferences
+  //     prefs.setString('storedTasks', jsonEncode(fetchedTasks));
+
+  //     // Show SnackBar for fetch success
+  //     ScaffoldMessenger.of(context).showSnackBar(
+  //       SnackBar(content: Text('Fetch Success')),
+  //     );
+
+  //     // Update state with fetched tasks
+  //     setState(() {
+  //       TodayItems = fetchedTasks["todayTasks"];
+  //       PastItems = fetchedTasks["pastTasks"];
+  //     });
+  //   } else {
+  //     print("Some issues occurred");
+  //     // Show SnackBar for issues
+  //     ScaffoldMessenger.of(context).showSnackBar(
+  //       SnackBar(content: Text('Something Went Wrong')),
+  //     );
+  //   }
+  // }
 
   @override
   void dispose() {
@@ -157,23 +179,29 @@ class _HomePageState extends State<HomePage>
             ),
           ),
         ),
-        body: TabBarView(
-          controller: _tabController,
-          children: <Widget>[
-            Center(
-              child: TaskListView(
-                TaskList: [Todayitems[0], Todayitems[1], Todayitems[2]],
-                IsToday: true,
+        body: isLoading
+            ? Center(
+                child: CircularProgressIndicator(
+                backgroundColor: const Color.fromARGB(255, 126, 126, 126),
+                color: Color.fromARGB(194, 227, 227, 227),
+              ))
+            : TabBarView(
+                controller: _tabController,
+                children: <Widget>[
+                  Center(
+                    child: TaskListView(
+                      TaskList: TodayItems,
+                      IsToday: true,
+                    ),
+                  ),
+                  Center(
+                    child: TaskListView(
+                      TaskList: PastItems,
+                      IsToday: false,
+                    ),
+                  )
+                ],
               ),
-            ),
-            Center(
-              child: TaskListView(
-                TaskList: [Todayitems[0], Todayitems[1]],
-                IsToday: false,
-              ),
-            )
-          ],
-        ),
       ),
     );
   }
